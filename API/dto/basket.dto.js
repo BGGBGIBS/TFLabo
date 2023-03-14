@@ -1,10 +1,8 @@
 module.exports = class BasketDTO {
-    constructor(basket_id, basket_street, basket_number, basket_box, basket_city, basket_postalcode) {
+    constructor(basket_id, customer_id, basket_count) {
       this.basket_id = basket_id;
-      this.basket_street = basket_street;
-      this.basket_number = basket_number;
-      this.basket_box = basket_box;
-      this.basket_city = basket_city;
-      this.basket_postalcode = basket_postalcode;
+      this.customer_id = customer_id;
+      this.basket_count = basket_count;
     }
-  }
+  };
+  

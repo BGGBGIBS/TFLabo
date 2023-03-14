@@ -1,10 +1,9 @@
 module.exports = class BapDTO {
-    constructor(bap_id, bap_street, bap_number, bap_box, bap_city, bap_postalcode) {
+    constructor(bap_id, author_id, publisher_id, book_id) {
       this.bap_id = bap_id;
-      this.bap_street = bap_street;
-      this.bap_number = bap_number;
-      this.bap_box = bap_box;
-      this.bap_city = bap_city;
-      this.bap_postalcode = bap_postalcode;
+      this.author_id = author_id;
+      this.publisher_id = publisher_id;
+      this.book_id = book_id;
     }
-  }
+  };
+  

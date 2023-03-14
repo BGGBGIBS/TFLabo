@@ -1,10 +1,12 @@
 module.exports = class CustomerDTO {
-    constructor(customer_id, customer_street, customer_number, customer_box, customer_city, customer_postalcode) {
+    constructor(customer_id, customer_firstname, customer_lastname, customer_email, customer_address, customer_phone, customer_birthdate) {
       this.customer_id = customer_id;
-      this.customer_street = customer_street;
-      this.customer_number = customer_number;
-      this.customer_box = customer_box;
-      this.customer_city = customer_city;
-      this.customer_postalcode = customer_postalcode;
+      this.customer_firstname = customer_firstname;
+      this.customer_lastname = customer_lastname;
+      this.customer_email = customer_email;
+      this.customer_address = customer_address;
+      this.customer_phone = customer_phone;
+      this.customer_birthdate = customer_birthdate;
     }
-  }
+  };
+  

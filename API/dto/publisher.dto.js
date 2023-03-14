@@ -1,10 +1,10 @@
 module.exports = class PublisherDTO {
-    constructor(publisher_id, publisher_street, publisher_number, publisher_box, publisher_city, publisher_postalcode) {
+    constructor(publisher_id, publisher_name, publisher_address, publisher_phone, publisher_url) {
       this.publisher_id = publisher_id;
-      this.publisher_street = publisher_street;
-      this.publisher_number = publisher_number;
-      this.publisher_box = publisher_box;
-      this.publisher_city = publisher_city;
-      this.publisher_postalcode = publisher_postalcode;
+      this.publisher_name = publisher_name;
+      this.publisher_address = publisher_address;
+      this.publisher_phone = publisher_phone;
+      this.publisher_url = publisher_url;
     }
-  }
+  };
+  
