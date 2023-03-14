@@ -4,10 +4,10 @@ var db = require('../models');
 
 var authorService = {
     getAll : async() => {
-        return await db.author.findAll();
+        return await db.Author.findAll();
     },
     getById : async(id) => {
-        return await db.author.findByPk(id);
+        return await db.Author.findByPk(id);
     }
     
 }

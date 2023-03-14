@@ -4,10 +4,10 @@ var db = require('../models');
 
 var customerService = {
     getAll : async() => {
-        return await db.customer.findAll();
+        return await db.Customer.findAll();
     },
     getById : async(id) => {
-        return await db.customer.findByPk(id);
+        return await db.Customer.findByPk(id);
     }
     
 }

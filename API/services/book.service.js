@@ -4,10 +4,10 @@ var db = require('../models');
 
 var bookService = {
     getAll : async() => {
-        return await db.book.findAll();
+        return await db.Book.findAll();
     },
     getById : async(id) => {
-        return await db.book.findByPk(id);
+        return await db.Book.findByPk(id);
     }
     
 }

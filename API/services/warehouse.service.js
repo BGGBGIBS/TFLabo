@@ -4,10 +4,10 @@ var db = require('../models');
 
 var warehouseService = {
     getAll : async() => {
-        return await db.warehouse.findAll();
+        return await db.Warehouse.findAll();
     },
     getById : async(id) => {
-        return await db.warehouse.findByPk(id);
+        return await db.Warehouse.findByPk(id);
     }
     
 }

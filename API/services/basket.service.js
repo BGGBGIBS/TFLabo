@@ -4,10 +4,10 @@ var db = require('../models');
 
 var basketService = {
     getAll : async() => {
-        return await db.basket.findAll();
+        return await db.Basket.findAll();
     },
     getById : async(id) => {
-        return await db.basket.findByPk(id);
+        return await db.Basket.findByPk(id);
     }
     
 }
