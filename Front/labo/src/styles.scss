@@ -1,1 +1,152 @@
-/* You can add global styles to this file, and also import other style files */
+.icon{
+    width: 25px;
+    height: 25px;
+}
+button{
+    all: unset;
+    background-color: #f7f7f7;
+    border-radius: 0.25em;
+}
+a{
+    all: unset;
+}
+.rounded-list {
+    border-radius: 0.25rem;
+    /* background-color: #d3d3d3; */
+    background-color: #333;
+    padding: 1rem;
+    /* list-style: none; */
+    display: flex;
+}
+
+.rounded-list li {
+    margin-bottom: 0.5rem;
+}
+
+footer{
+    border-radius: 0.25rem;
+    /* background-color: #d3d3d3; */
+    background-color: #333;
+    padding: 1rem;
+    list-style: none;
+    display: flex;
+    position:initial;
+}
+
+nav p,
+li,
+footer p{
+    color: white;
+}
+:root{
+    /* background-color: #f7f7f7; */
+    background-color: lightgrey;
+    border-radius: 0.25rem;
+    text-align: center;
+}
+.home{
+    text-align: center;
+    border-radius: 0.25rem;
+    background-color:lightgrey;
+}
+
+body{
+    background-color: lightgrey;
+}
+
+
+img{
+    box-sizing: content-box;
+}
+
+a{
+    cursor: pointer;
+}
+/* Forms */
+
+form {
+    width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 30px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fafafa;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #333;
+  }
+  
+  form input[type="text"],
+  form input[type="email"],
+  form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+  }
+  
+  form button[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    font-size: 18px;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  form button[type="submit"]:hover {
+    background-color: #444;
+  }
+  
+  
+
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 200px;
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  // nav a {
+  //   color: #fff;
+  //   text-decoration: none;
+  //   padding: 10px;
+  // }
+  // nav a:hover {
+  //   background-color: #555;
+  // }
+  
+  footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 235px;
+    width: auto;
+    height: 50px; /* hauteur du footer */
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding-top: 15px;
+    float: right;
+    // display: inline-block;
+  }
+  

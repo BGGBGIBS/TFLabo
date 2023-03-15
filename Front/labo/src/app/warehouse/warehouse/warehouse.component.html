@@ -1,0 +1,10 @@
+<div class="warehouse">
+    <h2>Warehouses</h2>
+    <div class="section" *ngIf="warehouses">
+        <div *ngFor="let warehouse of warehouses">{{ warehouse.warehouse_location }}, {{ warehouse.warehouse_name }} </div>
+    </div>
+    <div class="section" *ngIf="!warehouses">
+        <p>Loading warehouses...</p>
+    </div>    
+  </div>
+  
