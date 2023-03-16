@@ -7,7 +7,13 @@ var bookController = {
         res.status(200).json( await bookService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await bookService.getById(req));
+        const book = await bookService.getById(req.params.id);
+        if(!book) {
+            res.sendStatus(404);
+            return;
+        }
+        res.status(200).json(book);
+        // res.status(200).json( await bookService.getById(req));
     }
 }
 
