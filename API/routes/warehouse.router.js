@@ -4,7 +4,7 @@ var warehouseRouter = require('express').Router();
 
 warehouseRouter.route('/')
     .get(warehouseController.getAll)
-    // .post(warehouseController.create)
+    .post(warehouseController.create)
 
 
 warehouseRouter.route('/:id')
