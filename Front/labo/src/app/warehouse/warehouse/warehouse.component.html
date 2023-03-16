@@ -1,10 +1,15 @@
-<div class="warehouse">
+  <div class="page">
     <h2>Warehouses</h2>
-    <div class="section" *ngIf="warehouses">
-        <div *ngFor="let warehouse of warehouses">{{ warehouse.warehouse_location }}, {{ warehouse.warehouse_name }} </div>
-    </div>
+    
+    <ul class="list" *ngIf="warehouses">
+      <li class="item" *ngFor="let warehouse of warehouses">
+        <span class="name">{{ warehouse.warehouse_name }}</span>
+        <span class="location">{{ warehouse.warehouse_location }}</span>
+      </li>
+    </ul>
+    
     <div class="section" *ngIf="!warehouses">
-        <p>Loading warehouses...</p>
-    </div>    
+      <p>Loading warehouses...</p>
+    </div>
   </div>
   
