@@ -28,7 +28,7 @@ export class BookService {
   }
 
   updateBook(Book: Book): Observable<any> {
-    const url = `${this.apiUrl}/${Book.Book_id}`;
+    const url = `${this.apiUrl}/${Book.book_id}`;
     return this.http.put(url, Book);
   }
 

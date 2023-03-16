@@ -1,6 +1,6 @@
 export interface Book {
-    Book_id: number;
-    Book_isbn: string;
-    Book_title: string;
+    book_id: number;
+    book_isbn: string;
+    book_title: string;
   }
   
