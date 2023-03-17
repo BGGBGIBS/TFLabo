@@ -1,5 +1,3 @@
-var customerDTO = require('../dto/customer.dto');
-
 var db = require('../models');
 
 var customerService = {

@@ -1,15 +1,25 @@
-var inventoryDTO = require('../dto/inventory.dto');
-const { sequelize } = require('../models');
+// var inventoryService = {
+//     getByWarehouse : async(libraryId) => {
+//         return await sequelize.query('EXEC dbo.GetinventorysInLibrary @libraryId = :libraryId', {
+//             replacements: { libraryId },
+//             type: Sequelize.QueryTypes.SELECT
+//         });
+//     }
+// }
 
-var db = require('../models');
+// module.exports = inventoryService;
+var sp = require('../functions/booksByLibrary.function')
 
-var inventoryService = {
-    getByWarehouse : async(libraryId) => {
-        return await sequelize.query('EXEC dbo.GetinventorysInLibrary @libraryId = :libraryId', {
-            replacements: { libraryId },
-            type: Sequelize.QueryTypes.SELECT
-        });
-    }
-}
-
-module.exports = inventoryService;
+const inventoryService = {
+    getAvailableBooks : async (libraryId) => {
+      try {
+        const availableBooks = await sp.getAvailableBooksByLibrary(libraryId);
+        return availableBooks;
+      } catch (error) {
+        throw error;
+      }
+    },
+  };
+  
+  module.exports = inventoryService;
+  

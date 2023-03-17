@@ -16,7 +16,7 @@ var inventoryController = {
     //     // res.status(200).json( await inventoryService.getById(req));
     // },
     getByLibrary : async (req,res) => {
-        const inventory = await inventoryService.getByWarehouse(req.params.id);
+        const inventory = await inventoryService.getAvailableBooks(req.params.id);
         if(!inventory){
             res.status(404);
             return;
