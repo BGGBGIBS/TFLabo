@@ -1,0 +1,19 @@
+CREATE PROCEDURE usp_author_update
+    @author_id INT,
+    @author_firstname VARCHAR(50),
+    @author_lastname VARCHAR(50),
+    @author_email VARCHAR(50),
+    @author_address VARCHAR(50),
+    @author_url VARCHAR(50),
+    @author_birthdate DATE
+AS
+BEGIN
+    UPDATE author
+    SET author_firstname = @author_firstname,
+        author_lastname = @author_lastname,
+        author_email = author_email,
+        author_address = author_address,
+        author_url = author_url,
+        author_birthdate = author_birthdate
+    WHERE author_id = @author_id
+END

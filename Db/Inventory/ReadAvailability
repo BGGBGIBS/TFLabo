@@ -1,0 +1,9 @@
+CREATE PROCEDURE ShowBookAvailability
+    @book_id INT
+AS
+BEGIN
+    SELECT w.warehouse_name, bw.bw_count
+    FROM bw
+    JOIN warehouse w ON w.warehouse_id = bw.warehouse_id
+    WHERE bw.book_id = @book_id;
+END

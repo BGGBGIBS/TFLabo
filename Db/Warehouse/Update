@@ -1,0 +1,12 @@
+CREATE PROCEDURE sp_warehouse_update
+    @warehouse_id INT,
+    @warehouse_name VARCHAR(50),
+    @warehouse_location VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE warehouse SET
+        warehouse_name = @warehouse_name,
+        warehouse_location = @warehouse_location
+    WHERE warehouse_id = @warehouse_id;
+END

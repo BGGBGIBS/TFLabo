@@ -1,0 +1,13 @@
+CREATE PROCEDURE sp_customer_insert
+    @customer_firstname VARCHAR(50),
+    @customer_lastname VARCHAR(50),
+    @customer_email VARCHAR(50),
+    @customer_address VARCHAR(50),
+    @customer_phone INT,
+    @customer_birthdate DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO customer (customer_firstname, customer_lastname, customer_email, customer_address, customer_phone, customer_birthdate)
+    VALUES (@customer_firstname, @customer_lastname, @customer_email, @customer_address, @customer_phone, @customer_birthdate);
+END

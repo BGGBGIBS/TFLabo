@@ -1,0 +1,11 @@
+CREATE PROCEDURE usp_book_insert
+    @book_isbn INT,
+    @book_title VARCHAR(50),
+    @book_year DATE,
+    @book_price INT,
+    @book_category VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO book (book_isbn, book_title, book_year, book_price, book_category)
+    VALUES (@book_isbn, @book_title, @book_year, @book_price, @book_category)
+END

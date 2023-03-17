@@ -1,0 +1,6 @@
+CREATE PROCEDURE usp_book_getAll
+AS
+BEGIN
+    SELECT * FROM book
+END
+

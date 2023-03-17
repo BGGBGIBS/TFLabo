@@ -1,0 +1,6 @@
+CREATE PROCEDURE usp_book_delete
+    @book_id INT
+AS
+BEGIN
+    DELETE FROM book WHERE book_id = @book_id
+END

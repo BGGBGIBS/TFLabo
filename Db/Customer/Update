@@ -1,0 +1,20 @@
+CREATE PROCEDURE sp_customer_update
+    @customer_id INT,
+    @customer_firstname VARCHAR(50),
+    @customer_lastname VARCHAR(50),
+    @customer_email VARCHAR(50),
+    @customer_address VARCHAR(50),
+    @customer_phone INT,
+    @customer_birthdate DATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+    UPDATE customer SET
+        customer_firstname = @customer_firstname,
+        customer_lastname = @customer_lastname,
+        customer_email = @customer_email,
+        customer_address = @customer_address,
+        customer_phone = @customer_phone,
+        customer_birthdate = @customer_birthdate
+    WHERE customer_id = @customer_id;
+END

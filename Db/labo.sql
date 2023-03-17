@@ -93,5 +93,4 @@ CREATE TABLE cb(
     CONSTRAINT PK_cb PRIMARY KEY (cb_id),
     constraint FK_cb_book foreign key (book_id) references book(book_id),
     constraint FK_cb_basket foreign key (basket_id) references basket(basket_id)
-
 );

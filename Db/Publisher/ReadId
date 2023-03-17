@@ -1,0 +1,6 @@
+CREATE PROCEDURE sp_publisher_getById
+    @publisher_id INT
+AS
+BEGIN
+    SELECT * FROM publisher WHERE publisher_id = @publisher_id;
+END

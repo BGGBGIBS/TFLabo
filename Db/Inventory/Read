@@ -1,0 +1,9 @@
+
+CREATE PROCEDURE ShowLibraryInventory
+AS
+BEGIN
+    SELECT w.warehouse_name, b.book_title, bw.bw_count
+    FROM warehouse w
+    JOIN bw ON w.warehouse_id = bw.warehouse_id
+    JOIN book b ON bw.book_id = b.book_id;
+END

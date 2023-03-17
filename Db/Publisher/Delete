@@ -1,0 +1,7 @@
+CREATE PROCEDURE sp_publisher_delete
+    @publisher_id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DELETE FROM publisher WHERE publisher_id = @publisher_id;
+END

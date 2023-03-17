@@ -1,4 +1,5 @@
 var bookDTO = require('../dto/book.dto');
+const { sequelize } = require('../models');
 
 var db = require('../models');
 
@@ -9,7 +10,6 @@ var bookService = {
     getById : async(id) => {
         return await db.Book.findByPk(id);
     }
-    
 }
 
 module.exports = bookService;

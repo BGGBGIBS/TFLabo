@@ -1,0 +1,7 @@
+CREATE PROCEDURE sp_warehouse_getById
+    @warehouse_id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT * FROM warehouse WHERE warehouse_id = @warehouse_id;
+END

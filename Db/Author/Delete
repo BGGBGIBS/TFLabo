@@ -1,0 +1,6 @@
+CREATE PROCEDURE usp_author_delete
+    @author_id INT
+AS
+BEGIN
+    DELETE FROM author WHERE author_id = @author_id
+END

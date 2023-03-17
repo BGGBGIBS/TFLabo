@@ -1,0 +1,6 @@
+CREATE PROCEDURE usp_book_getById
+    @book_id INT
+AS
+BEGIN
+    SELECT * FROM book WHERE book_id = @book_id
+END

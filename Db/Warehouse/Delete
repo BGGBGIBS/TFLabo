@@ -1,0 +1,7 @@
+CREATE PROCEDURE sp_warehouse_delete
+    @warehouse_id INT
+AS
+BEGIN
+    SET NOCOUNT ON;
+    DELETE FROM warehouse WHERE warehouse_id = @warehouse_id;
+END

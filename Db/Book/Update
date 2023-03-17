@@ -1,0 +1,17 @@
+CREATE PROCEDURE usp_book_update
+    @book_id INT,
+    @book_isbn INT,
+    @book_title VARCHAR(50),
+    @book_year DATE,
+    @book_price INT,
+    @book_category VARCHAR(50)
+AS
+BEGIN
+    UPDATE book
+    SET book_isbn = @book_isbn,
+        book_title = @book_title,
+        book_year = @book_year,
+        book_price = @book_price,
+        book_category = @book_category
+    WHERE book_id = @book_id
+END

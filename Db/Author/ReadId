@@ -1,0 +1,6 @@
+CREATE PROCEDURE usp_author_getById
+    @author_id INT
+AS
+BEGIN
+    SELECT * FROM author WHERE author_id = @author_id
+END

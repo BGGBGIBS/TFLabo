@@ -1,0 +1,9 @@
+CREATE PROCEDURE sp_warehouse_insert
+    @warehouse_name VARCHAR(50),
+    @warehouse_location VARCHAR(50)
+AS
+BEGIN
+    SET NOCOUNT ON;
+    INSERT INTO warehouse (warehouse_name, warehouse_location)
+    VALUES (@warehouse_name, @warehouse_location);
+END

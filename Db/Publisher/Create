@@ -1,0 +1,14 @@
+CREATE PROCEDURE sp_publisher_create
+    @publisher_name VARCHAR(50),
+    @publisher_address VARCHAR(50),
+    @publisher_phone VARCHAR(50),
+    @publisher_url VARCHAR(50)
+AS
+BEGIN
+    INSERT INTO publisher (publisher_name, publisher_address, publisher_phone, publisher_url)
+    VALUES (@publisher_name, 
+            ISNULL(@publisher_address, ''),
+            ISNULL(@publisher_phone, ''),
+            ISNULL(@publisher_url, '')
+            );
+END

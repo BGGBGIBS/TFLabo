@@ -1,0 +1,15 @@
+CREATE PROCEDURE usp_author_insert
+    @author_firstname VARCHAR(50),
+    @author_lastname VARCHAR(50),
+    @author_email VARCHAR(50),
+    @author_address VARCHAR(50),
+    @author_url VARCHAR(50),
+    @author_birthdate DATE
+AS
+BEGIN
+    INSERT INTO author (author_firstname, author_lastname, author_email, author_address, author_url, author_birthdate)
+    VALUES (@author_firstname, @author_lastname,
+            @author_email, @author_address,
+            @author_url,
+            @author_birthdate)
+END

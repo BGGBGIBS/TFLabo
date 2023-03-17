@@ -1,0 +1,6 @@
+CREATE PROCEDURE usp_author_getAll
+AS
+BEGIN
+    SELECT * FROM author
+END
+
