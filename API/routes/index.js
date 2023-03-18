@@ -9,7 +9,7 @@ var publisherRouter = require('./publisher.router');
 var basketRouter = require('./basket.router');
 var bwRouter = require('./bw.router');
 var cbRouter = require('./cb.router');
-var inventoryRouter = require('./inventory.router');
+// var inventoryRouter = require('./inventory.router');
 
 
 
@@ -22,6 +22,6 @@ router.use('/publisher', publisherRouter);
 router.use('/basket', basketRouter);
 router.use('/bw', bwRouter);
 router.use('/cb', cbRouter);
-router.use('/inventory', inventoryRouter);
+// router.use('/inventory', inventoryRouter);
 
 module.exports = router;
