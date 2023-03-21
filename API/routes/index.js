@@ -1,27 +1,27 @@
 var router = require('express').Router();
 
 var customerRouter = require('./customer.router');
-var warehouseRouter = require('./warehouse.router');
+var libraryRouter = require('./library.router');
 var bookRouter = require('./book.router');
-var bapRouter = require('./bap.router');
+var baRouter = require('./ba.router');
 var authorRouter = require('./author.router');
 var publisherRouter = require('./publisher.router');
 var basketRouter = require('./basket.router');
-var bwRouter = require('./bw.router');
-var cbRouter = require('./cb.router');
+var elRouter = require('./el.router');
+var ebRouter = require('./eb.router');
 // var inventoryRouter = require('./inventory.router');
 
 
 
 router.use('/customer', customerRouter);
-router.use('/warehouse', warehouseRouter);
-router.use('/bap', bapRouter);
+router.use('/library', libraryRouter);
+router.use('/ba', baRouter);
 router.use('/book', bookRouter);
 router.use('/author', authorRouter);
 router.use('/publisher', publisherRouter);
 router.use('/basket', basketRouter);
-router.use('/bw', bwRouter);
-router.use('/cb', cbRouter);
+router.use('/el', elRouter);
+router.use('/eb', ebRouter);
 // router.use('/inventory', inventoryRouter);
 
 module.exports = router;
