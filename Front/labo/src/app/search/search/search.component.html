@@ -1,0 +1,17 @@
+<div class="page">
+    <div class="search-bar">
+      <select>
+        <option *ngFor="let author of authors" [value]="author.author_id">{{ author.author_firstname }} {{ author.author_lastname }}</option>
+      </select>
+    </div>
+    <div class="section">
+      <ul class="list">
+        <li class="item" *ngFor="let book of books">
+          <h3 class="name">{{ book.book_title }}</h3>
+          <p class="name">{{ book.book_id }}</p>
+          <p class="location">{{ book.book_isbn }}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  

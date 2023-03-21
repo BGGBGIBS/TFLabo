@@ -1,16 +1,14 @@
 const Sequelize = require('sequelize');
-var DataTypes = require('sequelize');
-
-module.exports = function(sequelize) {
-  return sequelize.define('cb', {
-    cb_id: {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('edition', {
+    edition_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    book_count: {
-      type: DataTypes.INTEGER,
+    edition_isbn: {
+      type: DataTypes.STRING(10),
       allowNull: true
     },
     book_id: {
@@ -21,25 +19,25 @@ module.exports = function(sequelize) {
         key: 'book_id'
       }
     },
-    basket_id: {
+    publisher_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'basket',
-        key: 'basket_id'
+        model: 'publisher',
+        key: 'publisher_id'
       }
     }
   }, {
     sequelize,
-    tableName: 'cb',
+    tableName: 'edition',
     schema: 'dbo',
     timestamps: false,
     indexes: [
       {
-        name: "PK_cb",
+        name: "PK_edition",
         unique: true,
         fields: [
-          { name: "cb_id" },
+          { name: "edition_id" },
         ]
       },
     ]

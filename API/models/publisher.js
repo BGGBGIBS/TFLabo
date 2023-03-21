@@ -1,7 +1,5 @@
 const Sequelize = require('sequelize');
-var DataTypes = require('sequelize');
-
-module.exports = function(sequelize) {
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('publisher', {
     publisher_id: {
       autoIncrement: true,

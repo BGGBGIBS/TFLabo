@@ -12,4 +12,7 @@ bookRouter.route('/:id')
     // .put(bookController.update)
     // .delete(bookController.delete)
 
+bookRouter.route('/author/:id')
+    .get(bookController.getByAuthor)
+
 module.exports = bookRouter;

@@ -8,6 +8,25 @@ var bapService = {
     },
     getById : async(id) => {
         return await db.Bap.findByPk(id);
+    },
+    getByAuthor : async(authorId) => {
+        // const author = await db.Author.findByPk(authorId);
+        // if (!author) {
+        //     throw new Error('Author not found');
+        // }
+        const books = await db.Book.findAll(
+            {
+            include: [
+            {
+                model: db.Author,
+                where:{
+                    author_id : authorId,
+                }
+            }
+            ]
+        }
+        );
+        return books;
     }
     
 }

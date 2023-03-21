@@ -1,6 +1,3 @@
-CREATE DATABASE labo;
-GO;
-
 USE labo;
 
 CREATE TABLE author (
@@ -14,6 +11,8 @@ CREATE TABLE author (
     CONSTRAINT PK_author PRIMARY KEY (author_id)
 );
 
+
+
 CREATE TABLE book (
     book_id INT IDENTITY(1,1),
     book_isbn INT,
@@ -24,6 +23,17 @@ CREATE TABLE book (
     CONSTRAINT PK_book PRIMARY KEY (book_id)
 );
 
+CREATE TABLE ba (
+    ba_id INT IDENTITY(1,1),
+    book_id INT NOT NULL,
+    author_id INT NOT NULL,
+    CONSTRAINT PK_ba PRIMARY KEY (ba_id),
+    constraint FK_ba_book foreign key (book_id) references book(book_id),
+    constraint FK_ba_author foreign key (author_id) references author(author_id)
+);
+
+
+
 CREATE TABLE publisher (
     publisher_id INT IDENTITY(1,1),
     publisher_name VARCHAR(50),
@@ -33,14 +43,22 @@ CREATE TABLE publisher (
     CONSTRAINT PK_pubisher PRIMARY KEY (publisher_id)
 );
 
-CREATE TABLE warehouse (
-    warehouse_id INT IDENTITY(1,1),
-    warehouse_name VARCHAR(50),
-    warehouse_location VARCHAR(50),
-    CONSTRAINT PK_warehouse PRIMARY KEY (warehouse_id)
+CREATE TABLE edition (
+    edition_id INT IDENTITY(1,1),
+    edition_isbn VARCHAR(10),
+    book_id INT,
+    publisher_id INT,
+    CONSTRAINT PK_edition PRIMARY KEY (edition_id),
+    constraint FK_edition_book foreign key (book_id) references book(book_id),
+    constraint FK_edition_publisher foreign key (publisher_id) references publisher(publisher_id)
 );
 
-
+CREATE TABLE library (
+    library_id INT IDENTITY(1,1),
+    library_name VARCHAR(50),
+    library_location VARCHAR(50),
+    CONSTRAINT PK_library PRIMARY KEY (library_id)
+);
 
 CREATE TABLE customer (
     customer_id INT IDENTITY(1,1),
@@ -63,34 +81,22 @@ CREATE TABLE basket (
 );
 
 
-CREATE TABLE bap(
-    bap_id INT IDENTITY(1,1),
-    author_id INT,
-    publisher_id INT,
-    book_id INT,
-    CONSTRAINT PK_bap PRIMARY KEY (bap_id),
-    constraint FK_bap_author foreign key (author_id) references author(author_id),
-    constraint FK_bap_publisher foreign key (publisher_id) references publisher(publisher_id),
-    constraint FK_bap_book foreign key (book_id) references book(book_id)
+CREATE TABLE el(
+    el_id INT IDENTITY(1,1),
+    el_count INT,
+    edition_id INT,
+    library_id INT,
+    CONSTRAINT PK_el PRIMARY KEY (el_id),
+    constraint FK_el_edition foreign key (edition_id) references edition(edition_id),
+    constraint FK_el_library foreign key (library_id) references library(library_id)
 );
 
-
-CREATE TABLE bw(
-    bw_id INT IDENTITY(1,1),
-    bw_count INT,
-    book_id INT,
-    warehouse_id INT,
-    CONSTRAINT PK_bw PRIMARY KEY (bw_id),
-    constraint FK_bw_book foreign key (book_id) references book(book_id),
-    constraint FK_bw_warehouse foreign key (warehouse_id) references warehouse(warehouse_id)
-);
-
-CREATE TABLE cb(
-    cb_id INT IDENTITY(1,1),
+CREATE TABLE eb(
+    bb_id INT IDENTITY(1,1),
     book_count INT,
-    book_id INT,
+    edition_id INT,
     basket_id INT,
-    CONSTRAINT PK_cb PRIMARY KEY (cb_id),
-    constraint FK_cb_book foreign key (book_id) references book(book_id),
-    constraint FK_cb_basket foreign key (basket_id) references basket(basket_id)
+    CONSTRAINT PK_bb PRIMARY KEY (bb_id),
+    constraint FK_bb_edition foreign key (edition_id) references edition(edition_id),
+    constraint FK_bb_basket foreign key (basket_id) references basket(basket_id)
 );

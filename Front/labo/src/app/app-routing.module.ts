@@ -6,6 +6,7 @@ export const routes: Routes = [
   { path: '',title:'Home', component: HomeComponent},
   { path: 'warehouse', title:'Warehouse', loadChildren: () => import('./warehouse/warehouse.module').then(m=>m.WarehouseModule)},
   { path: 'book', title:'Book', loadChildren: () => import('./book/book.module').then(m=>m.BookModule)},
+  { path: 'search', title:'Search', loadChildren: () => import('./search/search.module').then(m=>m.SearchModule)},
   { path: 'inventory', title: 'Inventory', loadChildren: () => import('./inventory/inventory.module').then(m=>m.InventoryModule)},
   { path : '**', redirectTo : 'not-found'}
 ];

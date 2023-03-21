@@ -1,33 +1,31 @@
 const Sequelize = require('sequelize');
-var DataTypes = require('sequelize');
-
-module.exports = function(sequelize) {
-  return sequelize.define('warehouse', {
-    warehouse_id: {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('library', {
+    library_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    warehouse_name: {
+    library_name: {
       type: DataTypes.STRING(50),
       allowNull: true
     },
-    warehouse_location: {
+    library_location: {
       type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {
     sequelize,
-    tableName: 'warehouse',
+    tableName: 'library',
     schema: 'dbo',
     timestamps: false,
     indexes: [
       {
-        name: "PK_warehouse",
+        name: "PK_library",
         unique: true,
         fields: [
-          { name: "warehouse_id" },
+          { name: "library_id" },
         ]
       },
     ]

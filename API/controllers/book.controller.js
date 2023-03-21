@@ -14,6 +14,14 @@ var bookController = {
         }
         res.status(200).json(book);
         // res.status(200).json( await bookService.getById(req));
+    },
+    getByAuthor : async (req,res) => {
+        const book = await bookService.getByAuthor(req.params);
+        if(!book){
+            res.sendStatus(404);
+            return;
+        }
+        res.status(200).json(book);
     }
 }
 

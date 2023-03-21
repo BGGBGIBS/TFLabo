@@ -7,7 +7,7 @@ var authorController = {
         res.status(200).json( await authorService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await authorService.getById(req));
+        res.status(200).json( await authorService.getById(req.params));
     }
 }
 

@@ -23,6 +23,11 @@ export class BapService {
     return this.http.get<Bap>(url);
   }
 
+  getBapByAuthor(authorId: number): Observable<Bap>{
+    const url = `${this.apiUrl}/author/${authorId}`;
+    return this.http.get<Bap>(url);
+  }
+
   addBap(Bap: Bap): Observable<Bap> {
     return this.http.post<Bap>(this.apiUrl, Bap);
   }

@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Author } from 'src/app/models/author.model';
+import { Book } from 'src/app/models/book.model';
+import { BookService } from 'src/app/services/book/book.service';
+import { AuthorService } from 'src/app/services/author/author.service';
 
 @Component({
   selector: 'app-search',
@@ -6,5 +10,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./search.component.scss']
 })
 export class SearchComponent {
+  books: Book[] =[];
+  authors: Author[] = [];
 
+  constructor(private bookService: BookService, private authorService: AuthorService) { }
+
+  ngOnInit(): void {
+    this.bookService.getBooks().subscribe((response: any) => {
+      this.books = response;
+    });
+
+    this.authorService.getAuthors().subscribe((response: any) => {
+      this.authors = response;
+    });
+  }
 }

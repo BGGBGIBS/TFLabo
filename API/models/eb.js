@@ -1,45 +1,43 @@
 const Sequelize = require('sequelize');
-var DataTypes = require('sequelize');
-
-module.exports = function(sequelize) {
-  return sequelize.define('bw', {
-    bw_id: {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('eb', {
+    bb_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    bw_count: {
+    book_count: {
       type: DataTypes.INTEGER,
       allowNull: true
     },
-    book_id: {
+    edition_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'book',
-        key: 'book_id'
+        model: 'edition',
+        key: 'edition_id'
       }
     },
-    warehouse_id: {
+    basket_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'warehouse',
-        key: 'warehouse_id'
+        model: 'basket',
+        key: 'basket_id'
       }
     }
   }, {
     sequelize,
-    tableName: 'bw',
+    tableName: 'eb',
     schema: 'dbo',
     timestamps: false,
     indexes: [
       {
-        name: "PK_bw",
+        name: "PK_bb",
         unique: true,
         fields: [
-          { name: "bw_id" },
+          { name: "bb_id" },
         ]
       },
     ]

@@ -1,6 +1,5 @@
 const Sequelize = require('sequelize');
-var DataTypes = require('sequelize');
-module.exports = function(sequelize) {
+module.exports = function(sequelize, DataTypes) {
   return sequelize.define('customer', {
     customer_id: {
       autoIncrement: true,

@@ -1,49 +1,43 @@
 const Sequelize = require('sequelize');
-var DataTypes = require('sequelize');
-
-module.exports = function(sequelize) {
-  return sequelize.define('bap', {
-    bap_id: {
+module.exports = function(sequelize, DataTypes) {
+  return sequelize.define('el', {
+    el_id: {
       autoIncrement: true,
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true
     },
-    author_id: {
+    el_count: {
+      type: DataTypes.INTEGER,
+      allowNull: true
+    },
+    edition_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'author',
-        key: 'author_id'
+        model: 'edition',
+        key: 'edition_id'
       }
     },
-    publisher_id: {
+    library_id: {
       type: DataTypes.INTEGER,
       allowNull: true,
       references: {
-        model: 'publisher',
-        key: 'publisher_id'
-      }
-    },
-    book_id: {
-      type: DataTypes.INTEGER,
-      allowNull: true,
-      references: {
-        model: 'book',
-        key: 'book_id'
+        model: 'library',
+        key: 'library_id'
       }
     }
   }, {
     sequelize,
-    tableName: 'bap',
+    tableName: 'el',
     schema: 'dbo',
     timestamps: false,
     indexes: [
       {
-        name: "PK_bap",
+        name: "PK_el",
         unique: true,
         fields: [
-          { name: "bap_id" },
+          { name: "el_id" },
         ]
       },
     ]
