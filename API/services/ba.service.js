@@ -1,13 +1,13 @@
-var bapDTO = require('../dto/bap.dto');
+var baDTO = require('../dto/ba.dto');
 
 var db = require('../models');
 
-var bapService = {
+var baService = {
     getAll : async() => {
-        return await db.Bap.findAll();
+        return await db.ba.findAll();
     },
     getById : async(id) => {
-        return await db.Bap.findByPk(id);
+        return await db.ba.findByPk(id);
     },
     getByAuthor : async(authorId) => {
         // const author = await db.Author.findByPk(authorId);
@@ -31,4 +31,4 @@ var bapService = {
     
 }
 
-module.exports = bapService;
+module.exports = baService;
