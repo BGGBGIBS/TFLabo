@@ -1,15 +1,15 @@
-var cbController = require('../controllers/cb.controller');
+var ebController = require('../controllers/eb.controller');
 
-var cbRouter = require('express').Router();
+var ebRouter = require('express').Router();
 
-cbRouter.route('/')
-    .get(cbController.getAll)
-    // .post(cbController.create)
+ebRouter.route('/')
+    .get(ebController.getAll)
+    // .post(ebController.create)
 
 
-cbRouter.route('/:id')
-    .get(cbController.getById)
-    // .put(cbController.update)
-    // .delete(cbController.delete)
+ebRouter.route('/:id')
+    .get(ebController.getById)
+    // .put(ebController.update)
+    // .delete(ebController.delete)
 
-module.exports = cbRouter;
+module.exports = ebRouter;

@@ -1,0 +1,15 @@
+<div class="list">
+    <h2 class="list">Baskets</h2>
+  
+    <ul class="list" *ngIf="baskets">
+      <li class="list" *ngFor="let basket of baskets">
+        <span class="list">{{ basket.basket_id }}</span>
+        <!-- <span class="list">{{ basket.basket_location }}</span> -->
+      </li>
+    </ul>
+  
+    <div class="list" *ngIf="!baskets">
+      <p class="list">Loading baskets...</p>
+    </div>
+  </div>
+  

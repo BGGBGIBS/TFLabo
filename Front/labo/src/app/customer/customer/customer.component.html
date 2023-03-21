@@ -1,0 +1,15 @@
+<div class="list">
+    <h2 class="list">Customers</h2>
+  
+    <ul class="list" *ngIf="customers">
+      <li class="list" *ngFor="let customer of customers">
+        <span class="list">{{ customer.customer_firstname }}</span>
+        <span class="list">{{ customer.customer_lastname }}</span>
+      </li>
+    </ul>
+  
+    <div class="list" *ngIf="!customers">
+      <p class="list">Loading customers...</p>
+    </div>
+  </div>
+  

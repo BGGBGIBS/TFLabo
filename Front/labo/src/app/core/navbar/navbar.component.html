@@ -1,9 +1,8 @@
-<nav>
-    <ul class="rounded-list">
-        <li class="rounded-list" *ngFor="let link of appRoutes; index as i;" [routerLink]="link.path">
-            <a [routerLink]="link.path">
-                {{ link.title }}
-            </a>
-        </li>
+<nav class="nav-bar">
+    <ul>
+      <li *ngFor="let link of appRoutes; index as i;" [routerLink]="link.path">
+        <a [routerLink]="link.path">{{ link.title }}</a>
+      </li>
     </ul>
-</nav>
+  </nav>
+  

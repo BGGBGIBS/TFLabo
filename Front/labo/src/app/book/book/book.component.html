@@ -1,14 +1,14 @@
-<div class="page">
+<div class="list">
     <h2>Books</h2>
     
     <ul class="list" *ngIf="books">
-      <li class="item" *ngFor="let book of books">
-        <span class="name">{{ book.book_title }}</span>
-        <span class="location">{{ book.book_isbn }}</span>
+      <li class="list" *ngFor="let book of books">
+        <span class="list">{{ book.book_title }}</span>
+        <span class="list">{{ book.book_isbn }}</span>
       </li>
     </ul>
     
-    <div class="section" *ngIf="!books">
+    <div class="list" *ngIf="!books">
       <p>Loading books...</p>
     </div>
   </div>

@@ -1,208 +1,82 @@
-.icon{
-    width: 25px;
-    height: 25px;
-}
-button{
-    all: unset;
-    background-color: #f7f7f7;
-    border-radius: 0.25em;
-}
-a{
-    all: unset;
-}
-.rounded-list {
-    border-radius: 0.25rem;
-    /* background-color: #d3d3d3; */
-    background-color: #333;
-    padding: 1rem;
-    /* list-style: none; */
+//Variables
+$primary-color: #4e5d6c;
+$secondary-color: #e7e7e7;
+$font-color: #222;
+$font-family: 'Open Sans', sans-serif;
+
+//Nav bar
+.nav-bar {
+  background-color: $primary-color;
+  color: $secondary-color;
+  font-family: $font-family;
+  padding: 1rem;
+  
+  ul {
+    list-style-type: none;
     display: flex;
-}
-
-.rounded-list li {
-    margin-bottom: 0.5rem;
-}
-
-footer{
-    border-radius: 0.25rem;
-    /* background-color: #d3d3d3; */
-    background-color: #333;
-    padding: 1rem;
-    list-style: none;
-    display: flex;
-    // position:initial;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 235px;
-    height: 50px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding-top: 15px;
-}
-
-nav p,
-li,
-footer p{
-    color: white;
-}
-:root{
-    /* background-color: #f7f7f7; */
-    background-color: lightgrey;
-    border-radius: 0.25rem;
-    text-align: center;
-}
-.home{
-    text-align: center;
-    border-radius: 0.25rem;
-    background-color:lightgrey;
-}
-
-body{
-    background-color: lightgrey;
-}
-
-
-img{
-    box-sizing: content-box;
-}
-
-a{
-    cursor: pointer;
-}
-/* Forms */
-
-form {
-    width: 400px;
-    margin: 50px auto;
-    text-align: center;
-    padding: 30px;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    background-color: #fafafa;
-  }
-  
-  form label {
-    display: block;
-    margin-bottom: 10px;
-    font-size: 14px;
-    color: #333;
-  }
-  
-  form input[type="text"],
-  form input[type="email"],
-  form input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    background-color: #fff;
-  }
-  
-  form button[type="submit"] {
-    width: 100%;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    font-size: 18px;
-    border: 0;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  form button[type="submit"]:hover {
-    background-color: #444;
-  }
-  
-  
-
-
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 200px;
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
     justify-content: space-between;
-  }
-  
-  // nav a {
-  //   color: #fff;
-  //   text-decoration: none;
-  //   padding: 10px;
-  // }
-  // nav a:hover {
-  //   background-color: #555;
-  // }
-  
-  footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 235px;
-    width: auto;
-    height: 50px; /* hauteur du footer */
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding-top: 15px;
-    float: right;
-    // display: inline-block;
-  }
-  
-
-
-
-  // Define styles for the warehouse page
-.page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 2rem;
-  min-height: calc(100vh - 50px);
-  margin-bottom: 50px;
-
-  
-  // Define styles for the library list
-  .list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    width: 100%;
-    max-width: 800px;
+    align-items: center;
     
-    // Define styles for each library item
-    .item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-      background-color: #fff;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-      border-radius: 4px;
-      margin-bottom: 1rem;
+    li {
+      margin: 0 1rem;
       
-      // Define styles for the library name
-      .name {
-        font-size: 1.2rem;
-        font-weight: bold;
-        color: #777;
-      }
-      
-      // Define styles for the library location
-      .location {
-        font-size: 1rem;
-        color: #777;
+      a {
+        color: $secondary-color;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+          color: lighten($secondary-color, 10%);
+        }
       }
     }
   }
+}
+
+//Footer
+.footer {
+  background-color: $primary-color;
+  color: $secondary-color;
+  font-family: $font-family;
+  padding: 1rem;
+  
+  p {
+    margin: 0;
+  }
+}
+
+//Lists
+.list {
+  font-family: $font-family;
+  
+  li {
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    
+    &:hover {
+      background-color: $secondary-color;
+      color: $primary-color;
+    }
+    
+    a {
+      color: $font-color;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+//Overall style
+body {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: $font-color;
+  background-color: $secondary-color;
 }

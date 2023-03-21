@@ -9,7 +9,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class WarehouseService {
 
-  private apiUrl = 'http://localhost:3000/api/warehouse';
+  private apiUrl = 'http://localhost:3000/api/library';
 
   constructor(private http: HttpClient) { }
 
