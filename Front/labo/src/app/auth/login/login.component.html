@@ -1,0 +1,15 @@
+<form formGroupName="login" (ngSubmit)="login()">
+    <div>
+      <label for="username">Nom d'utilisateur:</label>
+      <input type="text" id="username" formControlName="username" [(ngModel)]="username">
+    </div>
+    <div>
+        <label for="email">Addresse email:</label>
+        <input type="email" id="email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" [(ngModel)]="email" required>
+    </div>
+    <div>
+      <label for="password">Mot de passe:</label>
+      <input type="password" id="password" formControlName="password" [(ngModel)]="password">
+    </div>
+    <button type="submit">Se connecter</button>
+</form>

@@ -1,0 +1,11 @@
+<!-- <h2 (click)="toggleIsNew()">Log In / Sign In</h2>
+<app-login *ngIf="!isNew" />
+<app-signin *ngIf="isNew"/> -->
+
+
+
+
+<h2 (click)="toggleIsNew()" [class.active]="isNew === false">Log In</h2>
+<h2 (click)="toggleIsNew()" [class.active]="isNew === true">Sign In</h2>
+<app-login *ngIf="!isNew" />
+<app-signin *ngIf="isNew"/>
