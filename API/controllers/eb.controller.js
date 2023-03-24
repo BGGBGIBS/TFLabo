@@ -7,7 +7,7 @@ var ebController = {
         res.status(200).json( await ebService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await ebService.getById(req));
+        res.status(200).json( await ebService.getById(req.params));
     }
 }
 

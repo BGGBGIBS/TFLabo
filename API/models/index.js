@@ -1,5 +1,4 @@
 var Sequelize = require('sequelize');
-var DataTypes = require("sequelize").DataTypes;
 
 
 var { DB_SERVER, DB_DATABASE, DB_USERNAME, DB_PASSWORD } = process.env;
@@ -12,16 +11,16 @@ var sequelize = new Sequelize(DB_DATABASE, DB_USERNAME, DB_PASSWORD, {
 const db = {};
 db.sequelize = sequelize; 
 
-db.Author = require('./author')(sequelize, DataTypes);
-db.Customer = require('./customer')(sequelize, DataTypes);
-db.Eb = require('./eb')(sequelize, DataTypes);
-db.Edition = require('./edition')(sequelize, DataTypes);
-db.Publisher = require('./publisher')(sequelize, DataTypes);
-db.El = require('./el')(sequelize, DataTypes);
-db.Book = require('./book')(sequelize, DataTypes);
-db.Basket = require('./basket')(sequelize, DataTypes);
-db.Ba = require('./ba')(sequelize, DataTypes);
-db.Library = require('./library')(sequelize, DataTypes);
+db.Author = require('./author')(sequelize);
+db.Customer = require('./customer')(sequelize);
+db.Eb = require('./eb')(sequelize);
+db.Edition = require('./edition')(sequelize);
+db.Publisher = require('./publisher')(sequelize);
+db.El = require('./el')(sequelize);
+db.Book = require('./book')(sequelize);
+db.Basket = require('./basket')(sequelize);
+db.Ba = require('./ba')(sequelize);
+db.Library = require('./library')(sequelize);
 
 // Relation entre les auteurs et les Baps
 db.Author.hasMany(db.Ba);

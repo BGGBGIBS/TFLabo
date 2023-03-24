@@ -7,7 +7,8 @@ var customerController = {
         res.status(200).json( await customerService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await customerService.getById(req));
+        console.log(req);
+        res.status(200).json( await customerService.getById(req.params));
     }
 }
 

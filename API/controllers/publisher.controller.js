@@ -7,7 +7,7 @@ var publisherController = {
         res.status(200).json( await publisherService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await publisherService.getById(req));
+        res.status(200).json( await publisherService.getById(req.params));
     }
 }
 

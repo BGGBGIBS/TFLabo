@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize');
-module.exports = function(sequelize, DataTypes) {
+const { DataTypes } = require('sequelize');
+module.exports = function(sequelize) {
   return sequelize.define('customer', {
     customer_id: {
       autoIncrement: true,
@@ -29,6 +29,10 @@ module.exports = function(sequelize, DataTypes) {
     },
     customer_birthdate: {
       type: DataTypes.DATEONLY,
+      allowNull: true
+    },
+    customer_password: {
+      type: DataTypes.STRING(50),
       allowNull: true
     }
   }, {

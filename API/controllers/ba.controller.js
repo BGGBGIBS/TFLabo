@@ -10,7 +10,7 @@ var baController = {
         res.status(200).json( await baService.getById(req.params));
     },
     getByAuthor : async (req,res) => {
-        const ba = await baService.getByAuthor(req.params);
+        const ba = await baService.getByAuthor(req);
         if(!ba){
             res.sendStatus(404);
             return;

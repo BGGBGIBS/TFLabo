@@ -1,4 +1,4 @@
-var authorDTO = require('../dto/author.dto');
+var AuthorDTO = require('../dto/author.dto.js');
 
 var db = require('../models');
 
@@ -7,10 +7,10 @@ var authorService = {
         return await db.Author.findAll();
     },
     getById : async(id) => {
-        // return await db.Author.findByPk(id);
-        const warehouse = await db.Warehouse.findByPk(id); 
-
-        return warehouse ? new WarehouseDTO(warehouse) : null; 
+        console.log(id);
+        const author = await db.Author.findByPk(id); 
+        console.log(author);
+        return author ? new AuthorDTO(author) : null; 
     }
     
 }
