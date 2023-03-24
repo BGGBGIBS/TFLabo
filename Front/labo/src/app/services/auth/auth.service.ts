@@ -1,6 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { Auth } from 'src/app/models/auth.model';
+import { Login } from 'src/app/models/login.model';
+import { Register } from 'src/app/models/register.model';
 
 @Injectable({
   providedIn: 'root'
@@ -17,12 +20,12 @@ export class AuthService {
 
   constructor(private _httpClient : HttpClient) { }
 
-  register(register : Register) : Observable<AuthResult> {
-    return this._httpClient.post<AuthResult>(this._authUrl+'register', register)
+  register(register : Register) : Observable<Auth> {
+    return this._httpClient.post<Auth>(this._authUrl+'register', register)
   }
 
-  login(login : Login) : Observable<AuthResult> {
-    return this._httpClient.post<AuthResult>(this._authUrl+'login', login)
+  login(login : Login) : Observable<Auth> {
+    return this._httpClient.post<Auth>(this._authUrl+'login', login)
   }
 
   logout() : void {

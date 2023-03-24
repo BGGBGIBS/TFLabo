@@ -1,0 +1,15 @@
+<div class="list">
+    <h2 class="list">Authors</h2>
+  
+    <ul class="list" *ngIf="Authors">
+      <li class="list" *ngFor="let author of Authors">
+        <span class="list">{{ author.author_firstname }}</span>
+        <span class="list">{{ author.author_lastname }}</span>
+      </li>
+    </ul>
+  
+    <div class="list" *ngIf="!Authors">
+      <p class="list">Loading Authors...</p>
+    </div>
+  </div>
+  

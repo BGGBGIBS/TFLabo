@@ -15,7 +15,7 @@ export class LoginComponent {
 
   login() {
     if (this.username == 'admin' && this.password == 'admin') {
-      this.router.navigate(['/cv']);
+      this.router.navigate(['']);
     } else {
       alert('Nom d\'utilisateur ou mot de passe incorrect');
     }

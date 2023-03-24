@@ -1,6 +1,6 @@
 <nav class="nav-bar">
-    <ul>
-      <li *ngFor="let link of appRoutes; index as i;" [routerLink]="link.path">
+    <ul class="nav-bar">
+      <li class="nav-bar" *ngFor="let link of appRoutes; index as i;" [routerLink]="link.path">
         <a [routerLink]="link.path">{{ link.title }}</a>
       </li>
     </ul>

@@ -47,6 +47,9 @@ footer {
   }
 }
 
+a{
+  all: unset;
+}
 //Lists
 .list {
   font-family: $font-family;
@@ -64,6 +67,7 @@ footer {
     }
     
     a {
+      
       color: $font-color;
       text-decoration: none;
       
