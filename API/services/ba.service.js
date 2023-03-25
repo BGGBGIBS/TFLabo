@@ -1,32 +1,19 @@
-var baDTO = require('../dto/ba.dto');
+var BaDTO = require('../dto/ba.dto');
+const { sequelize } = require('../models');
 
 var db = require('../models');
+var initModels = require('../models/init-models');
+var models = initModels(sequelize);
 
 var baService = {
     getAll : async() => {
-        return await db.ba.findAll();
+        return await models.ba.findAll();
     },
     getById : async(id) => {
-        return await db.ba.findByPk(id);
-    },
-    getByAuthor : async(authorId) => {
-        // const author = await db.Author.findByPk(authorId);
-        // if (!author) {
-        //     throw new Error('Author not found');
-        // }
-        const books = await db.Book.findAll(
-            {
-            include: [
-            {
-                model: db.Author,
-                where:{
-                    author_id : authorId,
-                }
-            }
-            ]
-        }
-        );
-        return books;
+        console.log(id);
+        const ba = await models.ba.findByPk(id); 
+        console.log(ba);
+        return ba ? new BaDTO(ba) : null; 
     }
     
 }

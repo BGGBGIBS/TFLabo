@@ -5,7 +5,10 @@ var customerService = {
         return await db.Customer.findAll();
     },
     getById : async(id) => {
-        return await db.Customer.findByPk(id);
+        console.log(id);
+        const customer = await db.Customer.findByPk(id); 
+        console.log(customer);
+        return customer ? new CustomerDTO(customer) : null; 
     }
     
 }

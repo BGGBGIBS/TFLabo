@@ -1,4 +1,4 @@
-var publisherDTO = require('../dto/publisher.dto');
+var PublisherDTO = require('../dto/publisher.dto');
 
 var db = require('../models');
 
@@ -7,7 +7,10 @@ var publisherService = {
         return await db.Publisher.findAll();
     },
     getById : async(id) => {
-        return await db.Publisher.findByPk(id);
+        console.log("Publisher ID:", id);
+        const publisher = await db.Publisher.findByPk(id); 
+        console.log(publisher);
+        return publisher ? new PublisherDTO(publisher) : null; 
     }
     
 }

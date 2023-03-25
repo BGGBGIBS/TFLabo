@@ -1,13 +1,16 @@
-var elDTO = require('../dto/el.dto');
+var ElDTO = require('../dto/el.dto');
 
 var db = require('../models');
 
 var elService = {
     getAll : async() => {
-        return await db.el.findAll();
+        return await db.El.findAll();
     },
     getById : async(id) => {
-        return await db.el.findByPk(id);
+        console.log(id);
+        const el = await db.El.findByPk(id); 
+        console.log(el);
+        return el ? new ElDTO(el) : null; 
     }
     
 }

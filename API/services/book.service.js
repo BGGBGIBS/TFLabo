@@ -1,34 +1,30 @@
-var bookDTO = require('../dto/book.dto');
+var BookDTO = require('../dto/book.dto');
 const { sequelize } = require('../models');
 
 var db = require('../models');
-const author = require('../models/author');
+const book = require('../models/book');
 
 var bookService = {
     getAll : async() => {
         return await db.Book.findAll();
     },
     getById : async(id) => {
-        return await db.Book.findByPk(id);
+        console.log(id);
+        const book = await db.Book.findByPk(id); 
+        console.log(book);
+        return book ? new BookDTO(book) : null; 
     },
     getByAuthor : async(authorId) => {
-        // const author = await db.Author.findByPk(id);
-        // if (!author) {
-        //     throw new Error('Author not found');
-        // }
-        const books = await db.Book.findAll(
+        const books = await models.book.findAll({
+            include: [
             {
-                include: [
-                    db.Author]
-                
-                    // where: 
-                    // {
-                    //     author_id: authorId
-                    // },
-                
-            
-        }
-        );
+                model: models.author,
+                where: {
+                    author_id: authorId
+                }
+            }
+            ],
+        });
         return books;
     }
 }

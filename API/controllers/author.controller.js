@@ -8,8 +8,7 @@ var authorController = {
     },
     getById : async (req,res) => {
         console.log(req.params.id);
-        const { id } = req.params;
-        res.status(200).json( await authorService.getById(id));
+        res.status(200).json( await authorService.getById(req.params.id));
     }
 }
 

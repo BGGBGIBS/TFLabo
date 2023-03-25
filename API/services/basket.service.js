@@ -1,4 +1,4 @@
-var basketDTO = require('../dto/basket.dto');
+var BasketDTO = require('../dto/basket.dto');
 
 var db = require('../models');
 
@@ -7,7 +7,10 @@ var basketService = {
         return await db.Basket.findAll();
     },
     getById : async(id) => {
-        return await db.Basket.findByPk(id);
+        console.log("Basket ID : ", id);
+        const basket = await db.Basket.findByPk(id); 
+        console.log(basket);
+        return basket ? new BasketDTO(basket) : null; 
     }
     
 }

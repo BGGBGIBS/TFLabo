@@ -7,7 +7,7 @@ var elController = {
         res.status(200).json( await elService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await elService.getById(req.params));
+        res.status(200).json( await elService.getById(req.params.id));
     }
 }
 

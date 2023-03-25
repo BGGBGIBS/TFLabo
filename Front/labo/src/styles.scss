@@ -9,16 +9,17 @@ $font-family: 'Open Sans', sans-serif;
   background-color: $primary-color;
   color: $secondary-color;
   font-family: $font-family;
-  padding: 1rem;
+  padding: 0.4rem;
   
   ul {
     list-style-type: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    // color: $secondary-color;
     
     &:hover {
-      color: lighten($secondary-color, 10%);
+      color: lighten($secondary-color, 20%);
     }
 
     li {
@@ -28,8 +29,6 @@ $font-family: 'Open Sans', sans-serif;
         color: $secondary-color;
         text-decoration: none;
         transition: color 0.3s ease;
-        
-        
       }
     }
   }
@@ -50,33 +49,39 @@ footer {
 a{
   all: unset;
 }
-//Lists
+/* Liste */
 .list {
   font-family: $font-family;
+  list-style-type: none;
   
+  /* Élément de liste */
   li {
     margin: 0.5rem 0;
     padding: 0.5rem;
     border: 1px solid $secondary-color;
     border-radius: 5px;
     transition: all 0.3s ease;
+    background-color: $secondary-color;
     
+    /* État hover de l'élément */
     &:hover {
-      background-color: $secondary-color;
-      color: $primary-color;
+      background-color: $primary-color;
+      color: $secondary-color;
     }
     
+    /* Lien dans l'élément de liste */
     a {
-      
       color: $font-color;
       text-decoration: none;
       
+      /* État hover du lien */
       &:hover {
         text-decoration: underline;
       }
     }
   }
 }
+
 
 //Overall style
 body {

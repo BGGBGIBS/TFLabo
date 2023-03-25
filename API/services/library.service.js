@@ -7,7 +7,10 @@ var LibraryService = {
         return await db.Library.findAll();
     },
     getById : async(id) => {
-        return await db.Library.findByPk(id);
+        console.log(id);
+        const library = await db.Library.findByPk(id); 
+        console.log(library);
+        return library ? new LibraryDTO(library) : null; 
     },
     create : async(toAdd) => {
         var Library = await db.Library.create(toAdd);

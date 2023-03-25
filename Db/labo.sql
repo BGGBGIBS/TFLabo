@@ -92,11 +92,11 @@ CREATE TABLE el(
 );
 
 CREATE TABLE eb(
-    bb_id INT IDENTITY(1,1),
-    book_count INT,
+    eb_id INT IDENTITY(1,1),
+    eb_count INT,
     edition_id INT,
     basket_id INT,
-    CONSTRAINT PK_bb PRIMARY KEY (bb_id),
-    constraint FK_bb_edition foreign key (edition_id) references edition(edition_id),
-    constraint FK_bb_basket foreign key (basket_id) references basket(basket_id)
+    CONSTRAINT PK_eb PRIMARY KEY (bb_id),
+    constraint FK_eb_edition foreign key (edition_id) references edition(edition_id),
+    constraint FK_eb_basket foreign key (basket_id) references basket(basket_id)
 );

@@ -8,7 +8,7 @@ var customerController = {
     },
     getById : async (req,res) => {
         console.log(req);
-        res.status(200).json( await customerService.getById(req.params));
+        res.status(200).json( await customerService.getById(req.params.id));
     }
 }
 

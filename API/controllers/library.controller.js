@@ -7,8 +7,7 @@ var libraryController = {
         res.status(200).json( await libraryService.getAll());
     },
     getById : async (req,res) => {
-        const { id } = req.params;
-        const library = await libraryService.getById(id);
+        const library = await libraryService.getById(req.params.id);
         if(!library) {
             res.sendStatus(404);
             return;

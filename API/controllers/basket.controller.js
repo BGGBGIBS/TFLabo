@@ -7,7 +7,7 @@ var basketController = {
         res.status(200).json( await basketService.getAll());
     },
     getById : async (req,res) => {
-        res.status(200).json( await basketService.getById(req.params));
+        res.status(200).json( await basketService.getById(req.params.id));
     }
 }
 
