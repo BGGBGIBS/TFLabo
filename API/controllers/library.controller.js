@@ -16,7 +16,7 @@ var libraryController = {
         // res.status(200).json( await libraryService.getById(req.params));
     },
     create : async (req, res) => {
-        const library = await libraryService.create(req.body);
+        const library = await libraryService.create(req.body.data);
         res.location('/library/'+ library.library_id);
         res.status(201).json(new SuccessResponse(library, 201));
     }

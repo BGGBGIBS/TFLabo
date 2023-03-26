@@ -18,7 +18,7 @@ var baController = {
         res.status(200).json(ba);
     },
     create : async (req,res) => {
-        const ba = await baService.create(req.body);
+        const ba = await baService.create(req.body.data);
         res.location('/ba/' + ba.id);
         res.status(201).json(ba);
     }

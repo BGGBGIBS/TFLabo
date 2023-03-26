@@ -10,7 +10,7 @@ var publisherController = {
         res.status(200).json( await publisherService.getById(req.params.id));
     },
     create : async (req,res) => {
-        const publisher = await publisherService.create(req.body);
+        const publisher = await publisherService.create(req.body.data);
         res.location('/publisher/' + publisher.id);
         res.status(201).json(publisher);
     }
