@@ -4,7 +4,7 @@ var basketRouter = require('express').Router();
 
 basketRouter.route('/')
     .get(basketController.getAll)
-    // .post(basketController.create)
+    .post(basketController.create)
 
 
 basketRouter.route('/:id')

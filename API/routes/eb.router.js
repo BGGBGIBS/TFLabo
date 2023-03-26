@@ -4,7 +4,7 @@ var ebRouter = require('express').Router();
 
 ebRouter.route('/')
     .get(ebController.getAll)
-    // .post(ebController.create)
+    .post(ebController.create)
 
 
 ebRouter.route('/:id')

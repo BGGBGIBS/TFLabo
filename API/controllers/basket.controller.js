@@ -8,6 +8,11 @@ var basketController = {
     },
     getById : async (req,res) => {
         res.status(200).json( await basketService.getById(req.params.id));
+    },
+    create : async (req,res) => {
+        const basket = await basketService.create(req.body);
+        res.location('/basket/' + basket.id);
+        res.status(201).json(basket);
     }
 }
 

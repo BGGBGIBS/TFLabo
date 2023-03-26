@@ -1,16 +1,23 @@
 var ElDTO = require('../dto/el.dto');
 
-var db = require('../models');
+const { sequelize } = require('../models');
+var initModels = require('../models/init-models');
+var models = initModels(sequelize);
 
 var elService = {
     getAll : async() => {
-        return await db.El.findAll();
+        return await models.el.findAll();
     },
     getById : async(id) => {
         console.log(id);
-        const el = await db.El.findByPk(id); 
+        const el = await models.el.findByPk(id); 
         console.log(el);
         return el ? new ElDTO(el) : null; 
+    },
+    create : async(toAdd) => {
+        const newO = await models.el.create(toAdd);
+
+        return newO ? new ElDTO(newO) : null;
     }
     
 }

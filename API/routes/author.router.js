@@ -4,7 +4,7 @@ var authorRouter = require('express').Router();
 
 authorRouter.route('/')
     .get(authorController.getAll)
-    // .post(authorController.create)
+    .post(authorController.create)
 
 
 authorRouter.route('/:id')

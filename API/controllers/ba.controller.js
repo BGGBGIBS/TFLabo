@@ -16,6 +16,11 @@ var baController = {
             return;
         }
         res.status(200).json(ba);
+    },
+    create : async (req,res) => {
+        const ba = await baService.create(req.body);
+        res.location('/ba/' + ba.id);
+        res.status(201).json(ba);
     }
 }
 

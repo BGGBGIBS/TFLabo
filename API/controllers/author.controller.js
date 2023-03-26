@@ -9,6 +9,11 @@ var authorController = {
     getById : async (req,res) => {
         console.log(req.params.id);
         res.status(200).json( await authorService.getById(req.params.id));
+    },
+    create : async (req,res) => {
+        const author = await authorService.create(req.body);
+        res.location('/author/' + author.id);
+        res.status(201).json(author);
     }
 }
 

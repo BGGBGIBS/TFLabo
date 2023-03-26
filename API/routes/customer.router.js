@@ -4,7 +4,7 @@ var customerRouter = require('express').Router();
 
 customerRouter.route('/')
     .get(customerController.getAll)
-    // .post(customerController.create)
+    .post(customerController.create)
 
 
 customerRouter.route('/:id')

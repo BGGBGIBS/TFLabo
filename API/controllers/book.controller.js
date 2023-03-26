@@ -22,6 +22,11 @@ var bookController = {
             return;
         }
         res.status(200).json(book);
+    },
+    create : async (req,res) => {
+        const book = await bookService.create(req.body);
+        res.location('/book/' + book.id);
+        res.status(201).json(book);
     }
 }
 

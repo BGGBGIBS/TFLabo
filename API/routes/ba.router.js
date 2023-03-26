@@ -4,7 +4,7 @@ var baRouter = require('express').Router();
 
 baRouter.route('/')
     .get(baController.getAll)
-    // .post(baController.create)
+    .post(baController.create)
 
 
 baRouter.route('/:id')
@@ -12,7 +12,7 @@ baRouter.route('/:id')
     // .put(baController.update)
     // .delete(baController.delete)
 
-baRouter.route('/author/:id')
-    .get(baController.getByAuthor)
+// baRouter.route('/author/:id')
+//     .get(baController.getByAuthor)
 
 module.exports = baRouter;

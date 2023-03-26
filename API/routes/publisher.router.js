@@ -4,7 +4,7 @@ var publisherRouter = require('express').Router();
 
 publisherRouter.route('/')
     .get(publisherController.getAll)
-    // .post(publisherController.create)
+    .post(publisherController.create)
 
 
 publisherRouter.route('/:id')

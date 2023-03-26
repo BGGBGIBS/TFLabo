@@ -4,7 +4,7 @@ var bookRouter = require('express').Router();
 
 bookRouter.route('/')
     .get(bookController.getAll)
-    // .post(bookController.create)
+    .post(bookController.create)
 
 
 bookRouter.route('/:id')

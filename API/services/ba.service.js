@@ -1,7 +1,6 @@
 var BaDTO = require('../dto/ba.dto');
 const { sequelize } = require('../models');
 
-var db = require('../models');
 var initModels = require('../models/init-models');
 var models = initModels(sequelize);
 
@@ -14,6 +13,11 @@ var baService = {
         const ba = await models.ba.findByPk(id); 
         console.log(ba);
         return ba ? new BaDTO(ba) : null; 
+    },
+    create : async(toAdd) => {
+        const newBa = await models.ba.create(toAdd);
+
+        return newBa ? new BaDTO(newBa) : null;
     }
     
 }

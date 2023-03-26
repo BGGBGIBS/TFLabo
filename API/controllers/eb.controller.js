@@ -8,6 +8,11 @@ var ebController = {
     },
     getById : async (req,res) => {
         res.status(200).json( await ebService.getById(req.params.id));
+    },
+    create : async (req,res) => {
+        const eb = await ebService.create(req.body);
+        res.location('/eb/' + eb.id);
+        res.status(201).json(eb);
     }
 }
 
