@@ -7,4 +7,9 @@ export interface Author {
     author_url: string;
     author_birthdate: Date;
   }
+
+export interface AuthorArray {
+  results: Author[];
+  statusCode: number;
+}
   

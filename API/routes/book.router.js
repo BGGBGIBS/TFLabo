@@ -1,9 +1,10 @@
 var bookController = require('../controllers/book.controller');
 
 var bookRouter = require('express').Router();
+var pagination = require('../middlewares/pagination.middleware')
 
 bookRouter.route('/')
-    .get(bookController.getAll)
+    .get(pagination( { defaultLimit : 30, maxLimit : 200 }), bookController.getAll)
     .post(bookController.create)
 
 

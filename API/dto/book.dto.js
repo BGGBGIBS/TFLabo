@@ -1,7 +1,6 @@
 module.exports = class BookDTO {
-    constructor(book_id, book_isbn, book_title, book_year, book_price, book_category) {
+    constructor({ book_id, book_title, book_year, book_price, book_category }) {
       this.book_id = book_id;
-      this.book_isbn = book_isbn;
       this.book_title = book_title;
       this.book_year = book_year;
       this.book_price = book_price;

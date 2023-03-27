@@ -1,9 +1,10 @@
 var authorController = require('../controllers/author.controller');
+const pagination = require('../middlewares/pagination.middleware');
 
 var authorRouter = require('express').Router();
 
 authorRouter.route('/')
-    .get(authorController.getAll)
+    .get(pagination({ defaultLimit : 30, maxLimit : 200 }) ,  authorController.getAll)
     .post(authorController.create)
 
 

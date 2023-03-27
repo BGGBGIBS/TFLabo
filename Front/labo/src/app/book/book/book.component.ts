@@ -9,7 +9,7 @@ import { BookService } from 'src/app/services/book/book.service';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent {
-  books: Book [] = [];
+  books: Book[] = [];
 
   constructor(private _BookService : BookService, private _router : Router) {}
 
@@ -17,7 +17,8 @@ export class BookComponent {
     this._BookService.getBooks().subscribe({
       next: (res) => {
         console.log("NEXT", res);
-        this.books = res;
+        
+        this.books = res.results;
       },
       error : (err) => {
         console.log("ERROR", err);

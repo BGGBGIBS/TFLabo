@@ -9,7 +9,7 @@ module.exports = function(sequelize) {
     },
     customer_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'customer',
         key: 'customer_id'
@@ -17,7 +17,7 @@ module.exports = function(sequelize) {
     },
     basket_count: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

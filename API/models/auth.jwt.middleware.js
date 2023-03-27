@@ -1,5 +1,5 @@
 const { Request, Response, NextFunction } = require("express");
-const db = require("../models");
+const db = require(".");
 const userService = require("../services/user.service");
 const { ErrorResponse } = require("../utils/error.response");
 const jwt = require("../utils/jwt-utils");

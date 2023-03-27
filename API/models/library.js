@@ -9,11 +9,11 @@ module.exports = function(sequelize) {
     },
     library_name: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     library_location: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

@@ -8,12 +8,12 @@ module.exports = function(sequelize) {
       primaryKey: true
     },
     edition_isbn: {
-      type: DataTypes.STRING(10),
-      allowNull: true
+      type: DataTypes.BIGINT,
+      allowNull: false
     },
     book_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'book',
         key: 'book_id'
@@ -21,7 +21,7 @@ module.exports = function(sequelize) {
     },
     publisher_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'publisher',
         key: 'publisher_id'

@@ -1,5 +1,5 @@
 module.exports = class AuthorDTO {
-    constructor(author_id, author_firstname, author_lastname, author_email, author_address, author_url, author_birthdate) {
+    constructor({author_id, author_firstname, author_lastname, author_email, author_address, author_url, author_birthdate}) {
       this.author_id = author_id;
       this.author_firstname = author_firstname;
       this.author_lastname = author_lastname;

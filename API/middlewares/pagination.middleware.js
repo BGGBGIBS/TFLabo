@@ -1,10 +1,5 @@
  const { Request, Response, NextFunction } = require("express")
 
-/**
- * Fonction middleware Paginaton
- * @param { { defaultLimit : number?, maxLimit : number? }? } options
- * @returns { (req : Request , res : Response , next : NextFunction ) => undefined }
- */
 const pagination = (options) => {
     //Récup des options fournies lors de l'utilisation du middleware dans la route
     //Si on a des options et si sur ses options on a la propriété defaultLimit qui a été fournie, on prend la valeur qui est dedans, sinon on met 20
@@ -12,12 +7,6 @@ const pagination = (options) => {
     //Si on a des options et si sur ses options on a la propriété maxLimit qui a été fournie, on prend la valeur qui est dedans, sinon on met 50
     const maxLimit = options?.maxLimit ?? 50;
 
-    /**
-     * Middleware Pagination
-     * @param {Request} req
-     * @param {Response} res
-     * @param {NextFunction} next
-     */
     return (req, res, next) => {
         //Récupération des données éventuellement fournies dans la query de la requête
         const reqOffset = parseInt(req.query.offset);

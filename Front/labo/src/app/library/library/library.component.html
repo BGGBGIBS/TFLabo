@@ -1,0 +1,19 @@
+<div class="list">
+  <h2>Libraries</h2>
+
+  <ng-container *ngIf="librarys; else loading">
+    <ul class="list">
+      <li *ngFor="let library of librarys">
+        <h3>{{ library.library_name }}</h3>
+        <p>Id: {{ library.library_id }}, Location: {{ library.library_location }}</p>
+        <!-- <p>{{ library.library_location }}</p> -->
+      </li>
+    </ul>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="list">
+      <p>Loading libraries...</p>
+    </div>
+  </ng-template>
+</div>

@@ -9,11 +9,11 @@ module.exports = function(sequelize) {
     },
     el_count: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     edition_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'edition',
         key: 'edition_id'
@@ -21,7 +21,7 @@ module.exports = function(sequelize) {
     },
     library_id: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       references: {
         model: 'library',
         key: 'library_id'

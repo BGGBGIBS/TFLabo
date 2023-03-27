@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Author } from 'src/app/models/author.model';
+import { Author, AuthorArray } from 'src/app/models/author.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,10 +12,10 @@ export class AuthorService {
 
   constructor(private http: HttpClient) { }
 
-  getAuthors(): Observable<Author[]> {
-    console.log(this.http.get<Author[]>(this.apiUrl));
+  getAuthors(): Observable<AuthorArray> {
+    console.log(this.http.get<AuthorArray>(this.apiUrl));
     
-    return this.http.get<Author[]>(this.apiUrl);
+    return this.http.get<AuthorArray>(this.apiUrl);
   }
 
   getAuthor(id: number): Observable<Author> {

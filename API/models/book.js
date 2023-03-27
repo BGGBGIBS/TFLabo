@@ -7,25 +7,21 @@ module.exports = function(sequelize) {
       allowNull: false,
       primaryKey: true
     },
-    book_isbn: {
-      type: DataTypes.INTEGER,
-      allowNull: true
-    },
     book_title: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     book_year: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     book_price: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+      type: DataTypes.DOUBLE,
+      allowNull: false
     },
     book_category: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

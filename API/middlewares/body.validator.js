@@ -1,11 +1,6 @@
 const { ObjectSchema } = require("yup");
 const { ErrorResponse } = require("../utils/error.response");
 
-/**
- * 
- * @param {ObjectSchema} yupValidator 
- */
-
 const bodyValidation = (yupValidator) => {
 
     return async(req, res, next) => {

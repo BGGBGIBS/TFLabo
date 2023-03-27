@@ -9,31 +9,31 @@ module.exports = function(sequelize) {
     },
     customer_firstname: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     customer_lastname: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     customer_email: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     customer_address: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     customer_phone: {
-      type: DataTypes.INTEGER,
-      allowNull: true
+      type: DataTypes.BIGINT,
+      allowNull: false
     },
     customer_birthdate: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     },
     customer_password: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

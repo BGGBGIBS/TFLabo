@@ -9,7 +9,7 @@ import { AuthorService } from 'src/app/services/author/author.service';
   styleUrls: ['./author.component.scss']
 })
 export class AuthorComponent {
-  Authors: Author [] = [];
+  authors: Author [] = [];
 
   constructor(private _AuthorService : AuthorService, private _router : Router) {}
 
@@ -17,7 +17,7 @@ export class AuthorComponent {
     this._AuthorService.getAuthors().subscribe({
       next: (res) => {
         console.log("NEXT", res);
-        this.Authors = res;
+        this.authors = res.results;
       },
       error : (err) => {
         console.log("ERROR", err);

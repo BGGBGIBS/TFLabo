@@ -1,10 +1,12 @@
 var { Request, Response } = require('express');
 var libraryService = require('../services/library.service');
+var { SuccessResponse } = require('../utils/success.response');
 
 
 var libraryController = {
     getAll : async (req,res) => {
-        res.status(200).json( await libraryService.getAll());
+        libraries = await libraryService.getAll();
+        res.status(200).json( new SuccessResponse(libraries));
     },
     getById : async (req,res) => {
         const library = await libraryService.getById(req.params.id);
@@ -12,11 +14,10 @@ var libraryController = {
             res.sendStatus(404);
             return;
         }
-        res.status(200).json(library);
-        // res.status(200).json( await libraryService.getById(req.params));
+        res.status(200).json(new SuccessResponse(library));
     },
     create : async (req, res) => {
-        const library = await libraryService.create(req.body.data);
+        const library = await libraryService.create(req.body);
         res.location('/library/'+ library.library_id);
         res.status(201).json(new SuccessResponse(library, 201));
     }

@@ -17,11 +17,11 @@ export class SearchComponent {
 
   ngOnInit(): void {
     this.bookService.getBooks().subscribe((response: any) => {
-      this.books = response;
+      this.books = response.results;
     });
 
     this.authorService.getAuthors().subscribe((response: any) => {
-      this.authors = response;
+      this.authors = response.results;
     });
   }
 }

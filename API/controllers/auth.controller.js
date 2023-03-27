@@ -12,14 +12,10 @@ const authController = {
         const user = await authService.register(data);
 
         if(!user) {
-            res.sendStatus(400); //Bad Request : Les données ne sont pas bonnes
+            res.sendStatus(400);
             return;
         }
         const token = await jwt.generate(user);
-        //Deux solutions : 
-        // - Soit on renvoie juste le token
-        //res.status(201).json(new SuccessResponse(token, 201));
-        // - Soit on renvoie un objet, contenant le token ET le user
         res.status(201).json(token, user , 201);
 
     },

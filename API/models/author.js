@@ -9,27 +9,27 @@ module.exports = (sequelize) => {
     },
     author_firstname: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     author_lastname: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     author_email: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     author_address: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     author_url: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     author_birthdate: {
       type: DataTypes.DATEONLY,
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

@@ -1,15 +1,20 @@
 <div class="list">
-    <h2 class="list">Authors</h2>
-  
-    <ul class="list" *ngIf="Authors">
-      <li class="list" *ngFor="let author of Authors">
-        <span class="list">{{ author.author_firstname }}</span>
-        <span class="list">{{ author.author_lastname }}</span>
+  <h2>Authors</h2>
+
+  <ng-container *ngIf="authors; else loading">
+    <ul class="list">
+      <li *ngFor="let author of authors">
+        <h3>{{ author.author_lastname }} {{ author.author_firstname }}</h3>
+        <p>Age: {{ author.author_birthdate | age }} years, Address: {{ author.author_address }}</p>
+        <p>{{ author.author_url }}</p>
+        <p>{{ author.author_email }}</p>
       </li>
     </ul>
-  
-    <div class="list" *ngIf="!Authors">
-      <p class="list">Loading Authors...</p>
+  </ng-container>
+
+  <ng-template #loading>
+    <div class="list">
+      <p>Loading authors...</p>
     </div>
-  </div>
-  
+  </ng-template>
+</div>

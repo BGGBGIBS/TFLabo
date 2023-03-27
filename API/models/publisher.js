@@ -9,19 +9,19 @@ module.exports = function(sequelize) {
     },
     publisher_name: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     publisher_address: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     },
     publisher_phone: {
-      type: DataTypes.STRING(50),
-      allowNull: true
+      type: DataTypes.BIGINT,
+      allowNull: false
     },
     publisher_url: {
       type: DataTypes.STRING(50),
-      allowNull: true
+      allowNull: false
     }
   }, {
     sequelize,

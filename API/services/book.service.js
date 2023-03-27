@@ -1,24 +1,33 @@
 var BookDTO = require('../dto/book.dto');
 
-const { sequelize } = require('../models');
-var initModels = require('../models/init-models');
-var models = initModels(sequelize);
+const { sequelize, Author } = require('../models');
+var db = require('../models');
 
 var bookService = {
-    getAll : async() => {
-        return await models.book.findAll();
+    getAll : async (offset, limit) => {
+
+        const { rows, count } = await db.Book.findAndCountAll({
+            distinct : true,
+            offset : offset,
+            limit : limit,
+            include : [Author]
+        });
+        return {
+            books : rows.map(book => new BookDTO(book)),
+            count
+        } 
     },
     getById : async(id) => {
         console.log(id);
-        const book = await models.book.findByPk(id); 
+        const book = await db.Book.findByPk(id); 
         console.log(book);
         return book ? new BookDTO(book) : null; 
     },
     getByAuthor : async(authorId) => {
-        const books = await models.book.findAll({
+        const books = await db.Book.findAll({
             include: [
             {
-                model: models.author,
+                model: db.Author,
                 where: {
                     author_id: authorId
                 }
@@ -27,10 +36,30 @@ var bookService = {
         });
         return books;
     },
-    create : async(toAdd) => {
-        const newBook = await models.book.create(toAdd);
+    create : async(bookToAdd) => {
 
-        return newBook ? new BookDTO(newBook) : null;
+        const transaction = await db.sequelize.transaction()
+
+        let book;
+        try {
+            console.log(bookToAdd);
+            book = await db.Book.create(bookToAdd, { transaction });
+            await book.addAuthors(bookToAdd.authors, { transaction })
+
+            await transaction.commit();
+
+            console.log(book.book_id);
+            const addedbook = await db.Book.findByPk(book.book_id, {
+                include: [Author]
+            });
+
+            return addedbook ? new BookDTO(addedbook) : null;
+        }
+        catch (err) {
+            console.log(err);
+            await transaction.rollback();
+            return null;
+        }
     }
 }
 
