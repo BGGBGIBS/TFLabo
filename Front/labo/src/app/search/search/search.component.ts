@@ -12,6 +12,7 @@ import { AuthorService } from 'src/app/services/author/author.service';
 export class SearchComponent {
   books: Book[] =[];
   authors: Author[] = [];
+  array: Array<any> = [];
 
   constructor(private bookService: BookService, private authorService: AuthorService) { }
 

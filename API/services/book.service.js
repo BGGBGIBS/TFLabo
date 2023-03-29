@@ -10,7 +10,6 @@ var bookService = {
             distinct : true,
             offset : offset,
             limit : limit,
-            include : [Author]
         });
         return {
             books : rows.map(book => new BookDTO(book)),
@@ -45,7 +44,7 @@ var bookService = {
             console.log(bookToAdd);
             book = await db.Book.create(bookToAdd, { transaction });
             await book.addAuthors(bookToAdd.authors, { transaction })
-
+            console.log(bookToAdd.authors);
             await transaction.commit();
 
             console.log(book.book_id);

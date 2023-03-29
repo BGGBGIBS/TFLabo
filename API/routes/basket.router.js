@@ -1,9 +1,10 @@
 var basketController = require('../controllers/basket.controller');
 
 var basketRouter = require('express').Router();
+var pagination = require('../middlewares/pagination.middleware');
 
 basketRouter.route('/')
-    .get(basketController.getAll)
+    .get(pagination( { defaultLimit : 30, maxLimit : 200 }), basketController.getAll)
     .post(basketController.create)
 
 

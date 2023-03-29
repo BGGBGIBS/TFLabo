@@ -1,23 +1,23 @@
 <form [formGroup]="signin" (ngSubmit)="signIn()">
     <div>
       <label for="username">Nom d'utilisateur:</label>
-      <input type="text" id="username" formControlName="username">
+      <input type="text" id="username">
     </div>
     <div>
         <label for="firstname">Prénom:</label>
-        <input type="text" id="firstname" formControlName="firstName">
+        <input type="text" id="firstname" formControlName="firstname" autocomplete="name">
     </div>
     <div>
         <label for="lastname">Nom de famille:</label>
-        <input type="text" id="lastname" formControlName="lastName">
+        <input type="text" id="lastname" formControlName="lastname" autocomplete="family-name">
     </div>
     <div>
         <label for="birthdate">Date de naissance:</label>
-        <input type="date" id="birthdate" formControlName="birthDate">
+        <input type="date" id="birthdate" formControlName="birthdate" autocomplete="bday">
     </div>
     <div>
         <label for="email">Addresse email:</label>
-        <input type="email" id="email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required  autocomplete>
+        <input type="email" id="email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required  autocomplete="email">
     </div>
     <div>
       <label for="password">Mot de passe:</label>

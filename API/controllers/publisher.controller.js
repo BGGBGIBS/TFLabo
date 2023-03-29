@@ -1,10 +1,11 @@
 var { Request, Response } = require('express');
 var publisherService = require('../services/publisher.service');
-
+var { SuccessArrayResponse } = require('../utils/success.response');
 
 var publisherController = {
     getAll : async (req,res) => {
-        res.status(200).json( await publisherService.getAll());
+        publishers = await publisherService.getAll();
+        res.status(200).json( new SuccessArrayResponse(publishers));
     },
     getById : async (req,res) => {
         res.status(200).json( await publisherService.getById(req.params.id));

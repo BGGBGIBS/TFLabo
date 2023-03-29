@@ -17,7 +17,8 @@ module.exports = function(sequelize) {
     },
     customer_email: {
       type: DataTypes.STRING(50),
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     customer_address: {
       type: DataTypes.STRING(50),
@@ -32,8 +33,12 @@ module.exports = function(sequelize) {
       allowNull: false
     },
     customer_password: {
-      type: DataTypes.STRING(50),
+      type: DataTypes.STRING(100),
       allowNull: false
+    },
+    customer_role: {
+      type: DataTypes.STRING(15),
+      allowNull: true
     }
   }, {
     sequelize,

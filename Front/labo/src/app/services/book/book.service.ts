@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Book, BookArray } from 'src/app/models/book.model';
+import { Book, BookArray, BookDTO } from 'src/app/models/book.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,8 +23,8 @@ export class BookService {
     return this.http.get<Book>(url);
   }
 
-  addBook(Book: Book): Observable<Book> {
-    return this.http.post<Book>(this.apiUrl, Book);
+  addBook(Book: BookDTO): Observable<BookDTO> {
+    return this.http.post<BookDTO>(this.apiUrl, Book);
   }
 
   updateBook(Book: Book): Observable<any> {

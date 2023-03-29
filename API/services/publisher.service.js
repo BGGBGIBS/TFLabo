@@ -7,9 +7,16 @@ var db = require('../models');
 
 
 var publisherService = {
-    getAll : async() => {
-        return await db.Publisher.findAll();
-    },
+    getAll : async(offset, limit) => {
+        const { rows, count } = await db.Publisher.findAndCountAll({
+            distinct : true,
+            offset : offset,
+            limit : limit,
+        });
+        return {
+            publishers : rows.map(publisher => new PublisherDTO(publisher)),
+            count
+        }     },
     getById : async(id) => {
         console.log("Publisher ID:", id);
         const publisher = await db.Publisher.findByPk(id); 

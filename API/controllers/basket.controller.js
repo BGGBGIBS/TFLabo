@@ -1,10 +1,14 @@
 var { Request, Response } = require('express');
 var basketService = require('../services/basket.service');
-
+var { SuccessArrayResponse } = require('../utils/success.response');
 
 var basketController = {
     getAll : async (req,res) => {
-        res.status(200).json( await basketService.getAll());
+        // res.status(200).json( await basketService.getAll());
+        const { offset, limit } = req.pagination;
+
+        const { baskets, count } = await basketService.getAll(offset, limit);
+        res.status(200).json(new SuccessArrayResponse(baskets, count));
     },
     getById : async (req,res) => {
         res.status(200).json( await basketService.getById(req.params.id));

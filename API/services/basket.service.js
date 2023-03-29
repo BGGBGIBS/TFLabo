@@ -7,8 +7,16 @@ var db = require('../models');
 
 
 var basketService = {
-    getAll : async() => {
-        return await db.Basket.findAll();
+    getAll : async(offset, limit) => {
+        const { rows, count } = await db.Basket.findAndCountAll({
+            distinct : true,
+            offset : offset,
+            limit : limit,
+        });
+        return {
+            baskets : rows.map(basket => new BasketDTO(basket)),
+            count
+        } 
     },
     getById : async(id) => {
         console.log("Basket ID : ", id);

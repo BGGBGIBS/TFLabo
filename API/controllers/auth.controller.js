@@ -9,7 +9,7 @@ const authController = {
     register : async (req, res) => {
         const data = req.body;
 
-        const user = await authService.register(data);
+        const user = await authService.register(req.body);
 
         if(!user) {
             res.sendStatus(400);
@@ -22,17 +22,18 @@ const authController = {
 
 
     login : async (req, res) => {
-        const { email, password } = req.body;
+        const { customer_email, customer_password } = req.body;
 
-        const user = await authService.login(email, password);
-
+        const user = await authService.login(customer_email, customer_password);
+        console.log("CONTROLLER", user);
         if(!user) {
             res.status(400).json("Bad credentials"); 
             return;
         }
 
         const token = await jwt.generate(user);
-        res.status(200).json( token, user );
+        console.log("TOKEN", token);
+        res.status(200).json( new SuccessResponse({token, user}) );
     }
 }
 

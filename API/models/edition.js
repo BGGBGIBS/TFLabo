@@ -9,7 +9,8 @@ module.exports = function(sequelize) {
     },
     edition_isbn: {
       type: DataTypes.BIGINT,
-      allowNull: false
+      allowNull: false,
+      unique: true
     },
     book_id: {
       type: DataTypes.INTEGER,

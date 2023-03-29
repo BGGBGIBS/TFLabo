@@ -1,8 +1,6 @@
 var AuthorDTO = require('../dto/author.dto.js');
 
 const { sequelize } = require('../models');
-// var initModels = require('../models/init-models');
-// var models = initModels(sequelize);
 var db = require('../models');
 
 var authorService = {
@@ -14,7 +12,7 @@ var authorService = {
             limit : limit,
         });
         return {
-            authors : rows.map(book => new AuthorDTO(book)),
+            authors : rows.map(author => new AuthorDTO(author)),
             count
         } 
     },
@@ -25,9 +23,31 @@ var authorService = {
         return author ? new AuthorDTO(author) : null; 
     },
     create : async(toAdd) => {
-        const newAuthor = await db.Author.create(toAdd);
+        // const newAuthor = await db.Author.create(toAdd);
+        // return newAuthor ? new AuthorDTO(newAuthor) : null;
 
-        return newAuthor ? new AuthorDTO(newAuthor) : null;
+        const transaction = await db.sequelize.transaction()
+
+        let author;
+        try {
+            console.log(toAdd);
+            author = await db.Author.create(toAdd, { transaction });
+            await author.addBooks(toAdd.books, { transaction })
+            console.log(toAdd.books);
+            await transaction.commit();
+
+            console.log(author.author_id);
+            const addedauthor = await db.Author.findByPk(author.author_id, {
+                include: [db.Book]
+            });
+
+            return addedauthor ? new AuthorDTO(addedauthor) : null;
+        }
+        catch (err) {
+            console.log(err);
+            await transaction.rollback();
+            return null;
+        }
     }   
 }
 

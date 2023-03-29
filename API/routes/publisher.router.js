@@ -1,9 +1,11 @@
 var publisherController = require('../controllers/publisher.controller');
 
 var publisherRouter = require('express').Router();
+const pagination = require('../middlewares/pagination.middleware');
+
 
 publisherRouter.route('/')
-    .get(publisherController.getAll)
+    .get(pagination( { defaultLimit : 30, maxLimit : 200 }),publisherController.getAll)
     .post(publisherController.create)
 
 

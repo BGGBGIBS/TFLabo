@@ -1,8 +1,8 @@
-<form formGroupName="login" (ngSubmit)="login()">
-    <div>
+<form formGroupName="login" (ngSubmit)="logIn()">
+    <!-- <div>
       <label for="username">Nom d'utilisateur:</label>
       <input type="text" id="username" formControlName="username" autocomplete="additional-name">
-    </div>
+    </div> -->
     <div>
         <label for="email">Addresse email:</label>
         <input type="email" id="email" formControlName="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  required autocomplete="on">

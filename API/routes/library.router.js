@@ -1,9 +1,11 @@
 var libraryController = require('../controllers/library.controller');
 
 var libraryRouter = require('express').Router();
+const pagination = require('../middlewares/pagination.middleware');
+
 
 libraryRouter.route('/')
-    .get(libraryController.getAll)
+    .get(pagination( { defaultLimit : 30, maxLimit : 200 }),libraryController.getAll)
     .post(libraryController.create)
 
 

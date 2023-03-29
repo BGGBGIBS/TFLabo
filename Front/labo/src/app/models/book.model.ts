@@ -6,6 +6,13 @@ export interface Book {
     book_category: string;
   }
 
+export interface BookDTO {
+  book_title: string;
+  book_year: Date;
+  book_price: number;
+  book_category: string;
+}
+
   export interface BookArray{
     results : Book[];
     statusCode: number;

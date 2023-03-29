@@ -1,9 +1,10 @@
 var customerController = require('../controllers/customer.controller');
 
 var customerRouter = require('express').Router();
+var pagination = require('../middlewares/pagination.middleware');
 
 customerRouter.route('/')
-    .get(customerController.getAll)
+    .get(pagination( { defaultLimit : 30, maxLimit : 200 }),customerController.getAll)
     .post(customerController.create)
 
 

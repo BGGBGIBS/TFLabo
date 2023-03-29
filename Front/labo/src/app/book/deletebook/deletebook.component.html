@@ -1,0 +1,23 @@
+<form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="book_id">Id :</label>
+    <input type="text" class="form-control" id="book_id" formControlName="book_id" required>
+  </div>
+  <div class="form-group">
+    <label for="book_title">Title :</label>
+    <input type="text" class="form-control" id="book_title" formControlName="book_title">
+  </div>
+  <div class="form-group">
+    <label for="book_year">Year :</label>
+    <input type="text" class="form-control" id="book_year" formControlName="book_year">
+  </div>
+  <div class="form-group">
+    <label for="book_price">Price :</label>
+    <input type="text" class="form-control" id="book_price" formControlName="book_price">
+  </div>
+  <div class="form-group">
+    <label for="book_category">Category :</label>
+    <input type="text" class="form-control" id="book_category" formControlName="book_category">
+  </div>
+  <button type="submit" class="btn btn-danger" [disabled]="bookForm.invalid">Delete</button>
+</form>

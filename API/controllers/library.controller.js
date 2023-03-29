@@ -1,12 +1,12 @@
 var { Request, Response } = require('express');
 var libraryService = require('../services/library.service');
-var { SuccessResponse } = require('../utils/success.response');
+var { SuccessResponse , SuccessArrayResponse} = require('../utils/success.response');
 
 
 var libraryController = {
     getAll : async (req,res) => {
         libraries = await libraryService.getAll();
-        res.status(200).json( new SuccessResponse(libraries));
+        res.status(200).json( new SuccessArrayResponse(libraries));
     },
     getById : async (req,res) => {
         const library = await libraryService.getById(req.params.id);

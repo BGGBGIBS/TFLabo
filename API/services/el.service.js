@@ -4,8 +4,16 @@ const { sequelize } = require('../models');
 var db = require('../models');
 
 var elService = {
-    getAll : async() => {
-        return await db.El.findAll();
+    getAll : async(offset, limit) => {
+        const { rows, count } = await db.El.findAndCountAll({
+            distinct : true,
+            offset : offset,
+            limit : limit,
+        });
+        return {
+            els : rows.map(el => new ElDTO(el)),
+            count
+        } 
     },
     getById : async(id) => {
         console.log(id);

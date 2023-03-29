@@ -9,25 +9,40 @@ import { BookService } from 'src/app/services/book/book.service';
   styleUrls: ['./book.component.scss']
 })
 export class BookComponent {
-  books: Book[] = [];
+  
+  isGet: boolean;
+  isAdd: boolean;
+  isUpdate: boolean;
+  isDelete: boolean;
+  constructor() {
+    this.isGet = false;
+    this.isAdd = false;
+    this.isUpdate = false;
+    this.isDelete = false;
+  }
 
-  constructor(private _BookService : BookService, private _router : Router) {}
-
-  ngOnInit() : void{
-    this._BookService.getBooks().subscribe({
-      next: (res) => {
-        console.log("NEXT", res);
-        
-        this.books = res.results;
-      },
-      error : (err) => {
-        console.log("ERROR", err);
-        
-      },
-      complete : () => {
-        console.log("COMPLETE");
-      }
-    })
-    
+  toggleIsGet(){
+    this.isGet = !this.isGet;
+    this.isAdd = false;
+    this.isUpdate = false;
+    this.isDelete = false;
+  }
+  toggleIsAdd(){
+    this.isGet = false;
+    this.isAdd = !this.isAdd;
+    this.isUpdate = false;
+    this.isDelete = false;
+  }
+  toggleIsUpdate(){
+    this.isGet = false;
+    this.isAdd = false;
+    this.isUpdate = !this.isUpdate;
+    this.isDelete = false;
+  }
+  toggleIsDelete(){
+    this.isGet = false;
+    this.isAdd = false;
+    this.isUpdate = false;
+    this.isDelete = !this.isDelete;
   }
 }

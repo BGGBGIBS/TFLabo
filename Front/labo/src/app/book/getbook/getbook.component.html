@@ -1,0 +1,18 @@
+<div class="list">
+    <ng-container *ngIf="books; else loading">
+      <ul class="list">
+        <li *ngFor="let book of books">
+          <h3>{{ book.book_title }}</h3>
+          <p>Year: {{ book.book_year | date:'yyyy' }}, Price: {{ book.book_price | currency:'USD':'symbol':'1.2-2' }}</p>
+          <p class="category">{{ book.book_category }}</p>
+        </li>
+      </ul>
+    </ng-container>
+  
+    <ng-template #loading>
+      <div class="list">
+        <p>Loading books...</p>
+      </div>
+    </ng-template>
+  </div>
+  

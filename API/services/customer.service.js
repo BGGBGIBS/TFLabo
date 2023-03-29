@@ -7,8 +7,16 @@ var db = require('../models');
 
 
 var customerService = {
-    getAll : async() => {
-        return await db.Customer.findAll();
+    getAll : async(offset, limit) => {
+        const { rows, count } = await db.Customer.findAndCountAll({
+            distinct : true,
+            offset : offset,
+            limit : limit,
+        });
+        return {
+            customers : rows.map(customer => new CustomerDTO(customer)),
+            count
+        } 
     },
     getById : async(id) => {
         console.log(id);
@@ -17,9 +25,35 @@ var customerService = {
         return customer ? new CustomerDTO(customer) : null; 
     },
     create : async(toAdd) => {
-        const newCustomer = await db.Customer.create(toAdd);
+        // const newCustomer = await db.Customer.create(toAdd);
 
-        return newCustomer ? new CustomerDTO(newCustomer) : null;
+        // return newCustomer ? new CustomerDTO(newCustomer) : null;
+
+        const transaction = await db.sequelize.transaction()
+
+        let customer;
+        try {
+            console.log(toAdd);
+            customer = await db.Customer.create(toAdd, { transaction });
+            // await customer.addAuthors(toAdd.authors, { transaction })
+            // console.log(toAdd.authors);
+            await transaction.commit();
+
+            console.log(customer.customer_id);
+            const addedcustomer = await db.Customer.findByPk(customer.customer_id
+            //     , {
+            //     include: [db.Basket]
+            // }
+            );
+            console.log(addedcustomer);
+
+            return addedcustomer ? new CustomerDTO(addedcustomer) : null;
+        }
+        catch (err) {
+            console.log("ROLLBACK WARNING", err);
+            await transaction.rollback();
+            return null;
+        }
     }
     
 }
