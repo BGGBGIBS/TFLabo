@@ -1,11 +1,12 @@
 var bookController = require('../controllers/book.controller');
 
 var bookRouter = require('express').Router();
-var pagination = require('../middlewares/pagination.middleware')
+var pagination = require('../middlewares/pagination.middleware');
+var authJwt = require('../middlewares/auth.jwt.middleware');
 
 bookRouter.route('/')
     .get(pagination( { defaultLimit : 30, maxLimit : 200 }), bookController.getAll)
-    .post(bookController.create)
+    .post(authJwt() ,bookController.create)
 
 
 bookRouter.route('/:id')

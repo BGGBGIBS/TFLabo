@@ -1,7 +1,7 @@
 const { Request, Response } = require("express");
 const authService = require("../services/auth.service");
 const { ErrorResponse } = require("../utils/error.response");
-const { SuccessResponse } = require("../utils/success.response");
+const { SuccessResponse, SuccessArrayResponse} = require("../utils/success.response");
 const jwt = require('../utils/jwt-utils');
 
 const authController = {
@@ -16,7 +16,7 @@ const authController = {
             return;
         }
         const token = await jwt.generate(user);
-        res.status(201).json(token, user , 201);
+        res.status(201).json(new SuccessArrayResponse({token, user} , 201));
 
     },
 

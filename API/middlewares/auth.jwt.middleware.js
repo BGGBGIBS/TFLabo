@@ -1,6 +1,6 @@
 const { Request, Response, NextFunction } = require("express");
 const db = require("../models");
-const userService = require("../services/user.service");
+const customerService = require("../services/customer.service");
 const { ErrorResponse } = require("../utils/error.response");
 const jwt = require("../utils/jwt-utils");
 
@@ -39,6 +39,9 @@ const authJwt = (roles) => {
         //On essaie de décoder le token
         const payload = await jwt.decode(token);
 
+        console.log("PAYLOAD", payload);
+        console.log("ROLES", roles);
+
         //Si on a reçu un tableau de roles, on doit vérifier le role de l'utilisateur connecté pour voir s'il est présent dans le tableau
         if(roles){
             //#region explication pourquoi recherche db plutôt que sur payload.role
@@ -48,10 +51,14 @@ const authJwt = (roles) => {
             //#endregion
 
             //Comme on a accès à l'id via payload.id, on peut faire une requête db, pour récupéré l'utilisateur
-            const connectedUser = await userService.getById(payload.id)
+            const connectedUser = await customerService.getById(payload.id);
+            if(!connectedUser){
+                res.status(403).json(new ErrorResponse("PAYLOAD ID NOT FOUND", 403));
+            }
+            console.log("CONNECTED USER", connectedUser);
             //Est-ce que le rôle de connectedUser est présent dans le tableau de rôles reçu en paramètre
             // tableau roles inclut le role user ?
-            roles = roles.map(r => r.toLowerCase()) //On transforme le tableau de roles reçu en paramètre tout en minuscle comme ça on pourra comparer au role connectedUser converti en minuscle aussi (plus de soucis de casse)
+            roles = roles.map(r => r.toLowerCase()); //On transforme le tableau de roles reçu en paramètre tout en minuscle comme ça on pourra comparer au role connectedUser converti en minuscle aussi (plus de soucis de casse)
             const canAccess = roles.includes(connectedUser.role.toLowerCase())
             //Si le role n'est pas dans le tableau de roles
             if(!canAccess) {

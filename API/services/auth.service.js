@@ -30,6 +30,9 @@ const authService = {
             // });
             console.log("ADDED", addedcustomer);
             return addedcustomer ? new CustomerDTO(addedcustomer) : null;
+
+
+            
         }
         catch (err) {
             console.log(err);
@@ -48,11 +51,11 @@ const authService = {
         }
         );
         console.log("CUSTOMER FINDED",customer);
-        console.log("CUSTOMER PASSWORD", customer.customer_password);
-        console.log("LOCAL PASSWORD", localcustomer_password);
         if(!customer) {
             return null;
         }
+        console.log("CUSTOMER PASSWORD", customer.customer_password);
+        console.log("LOCAL PASSWORD", localcustomer_password);
 
         
         const isValid = await argon2.verify(customer.customer_password, localcustomer_password);

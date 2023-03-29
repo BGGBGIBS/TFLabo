@@ -1,4 +1,5 @@
 var publisherController = require('../controllers/publisher.controller');
+const authJwt = require('../middlewares/auth.jwt.middleware');
 
 var publisherRouter = require('express').Router();
 const pagination = require('../middlewares/pagination.middleware');
@@ -6,7 +7,7 @@ const pagination = require('../middlewares/pagination.middleware');
 
 publisherRouter.route('/')
     .get(pagination( { defaultLimit : 30, maxLimit : 200 }),publisherController.getAll)
-    .post(publisherController.create)
+    .post(authJwt(),publisherController.create)
 
 
 publisherRouter.route('/:id')

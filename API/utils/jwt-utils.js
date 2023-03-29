@@ -21,8 +21,9 @@ const jwt = {
             //issuer : "MusicApi" -> De qui provient le token (notre application API)
             //audience : "AngularSpotify" -> A qui est destiné le token (la ou les appli qui vont l'utiliser) peut être, une chaine (si 1 appli ), un tableau (si plein d'appli) 
             //#endregion
-            
+            console.log("PAYLOAD ID", id);
             const payload = { id, role }
+            console.log("JWT UTILS PAYLOAD GENERATE", payload);
             const secret = JWT_SECRET
             const options = {
                 algorithm : "HS512", //'HS256', 'HS384', 'HS512' (default HS512)
@@ -67,8 +68,10 @@ const jwt = {
                 if(error) {
                     reject(error)
                 }
+                console.log("JWT UTILS PAYLOAD DECODE", payload);
                 //Si pas d'erreur, on résoud la promesse en renvoyant le payload (données user)
                 resolve(payload)
+
 
             } )
         })
