@@ -15,7 +15,7 @@ export class BookComponent {
   isUpdate: boolean;
   isDelete: boolean;
   constructor() {
-    this.isGet = false;
+    this.isGet = true;
     this.isAdd = false;
     this.isUpdate = false;
     this.isDelete = false;

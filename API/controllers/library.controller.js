@@ -17,9 +17,17 @@ var libraryController = {
         res.status(200).json(new SuccessResponse(library));
     },
     create : async (req, res) => {
-        const library = await libraryService.create(req.body);
-        res.location('/library/'+ library.library_id);
-        res.status(201).json(new SuccessResponse(library, 201));
+        console.log("LIBRARY", req.body);
+        try {
+            const library = await libraryService.create(req.body);
+            res.location('/library/' + library.id);
+            res.status(201).json(new SuccessResponse(library, 201));
+
+        }
+        catch(err){
+            console.log(err);
+            res.sendStatus(500)
+        }
     }
 }
 

@@ -1,9 +1,17 @@
+
 //Variables
 $primary-color: #4e5d6c;
 $secondary-color: #e7e7e7;
 $third-color: lighten($primary-color, 10%);
 $font-color: #222;
 $font-family: 'Open Sans', sans-serif;
+
+
+//ROOT
+:root{
+  text-align: center;
+}
+
 
 //Nav bar
 .nav-bar {
@@ -51,8 +59,6 @@ a{
   all: unset;
 }
 
-
-
 //Overall style
 body {
   margin: 0;
@@ -62,6 +68,8 @@ body {
   background-color: $secondary-color;
 }
 
+
+//Form 
 
 form {
   width: 400px;
@@ -108,28 +116,6 @@ form button[type="submit"]:hover {
   background-color: #444;
 }
 
-:root{
-  text-align: center;
-}
-
-
-
-
-
-h2 {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  margin: 0;
-  background-color: transparent;
-  border: none;
-  font-size: 1.2rem;
-  color: #333;
-
-  &.active {
-    background-color: #555;
-    color: #fff;
-  }
-}
 
 // Style pour le bouton "Log In"
 .login-btn {
@@ -156,8 +142,26 @@ h2 {
 }
 
 
+// H2
+h2 {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin: 0;
+  background-color: transparent;
+  border: none;
+  font-size: 1.2rem;
+  color: #333;
+
+  &.active {
+    background-color: #555;
+    color: #fff;
+  }
+}
 
 
+
+
+// LIST
 
 .list {
   list-style-type: none;
